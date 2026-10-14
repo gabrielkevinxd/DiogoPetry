@@ -1,0 +1,1172 @@
+/* Diogo Petry - profile data. Source: LinkedIn screenshots (see briefing/conteudo.md).
+ * stats formulas (referenceDate 2026-10):
+ *   yearsExperience = 13  // floor(months(2013-10 -> 2026-10)/12) = floor(156/12); start = Mar Telecom, out. 2013
+ *   employers = 5  // count(experience) = 5
+ *   countries = 2  // distinct country of experience = {PT, BR}
+ *   certifications = 10  // count(Licencas e certificados) = 10
+ *   ciscoCertifications = 8  // count(issuer = Cisco) = CCIE, CCNP Ent, ENCOR, ENARSI, CCNA, CCNA ITN, CCNA SRWE, Intro Cyber
+ *   ccnaToCcieMonths = 25  // months(CCNA 2023-09 -> CCIE 2025-10) = (2025-2023)*12 + (10-9) = 25
+ *   monthsCurrentRole = 40  // months(2023-06 -> 2026-10) = 40 (referenceDate 2026-10; LinkedIn shows 3 anos 5 meses = inclusive count at a later view)
+ *   towersManaged = 45  // literal from Mar Telecom role: "45 transmission towers"
+ */
+window.PROFILE = {
+  "meta": {
+    "name": "Diogo Petry",
+    "ccie": "69742",
+    "ccieLabel": "CCIE #69742",
+    "phone": "+351911849426",
+    "phoneFormatted": "+351 911 849 426",
+    "whatsapp": "https://wa.me/351911849426",
+    "linkedin": "https://www.linkedin.com/in/diogopetry/",
+    "email": null,
+    "location": {
+      "country": "Portugal",
+      "countryCode": "PT",
+      "currentWorkplace": "Braga"
+    },
+    "photo": "assets/img/photo.jpg",
+    "photoShape": "circle",
+    "photoSize": "815x815",
+    "referenceDate": "2026-10",
+    "defaultLocale": "en",
+    "locales": [
+      "en",
+      "pt-PT",
+      "pt-BR"
+    ],
+    "experience": [
+      {
+        "id": "dstelecom",
+        "org": "dstelecom",
+        "titleOriginal": "Network Engineer",
+        "start": "2023-06",
+        "end": null,
+        "countryCode": "PT",
+        "mode": "hybrid",
+        "employmentType": "full-time",
+        "tech": [
+          "BGP",
+          "Telecom Infrastructure"
+        ]
+      },
+      {
+        "id": "upei",
+        "org": "Upei IT Consulting",
+        "titleOriginal": "Network Engineer",
+        "start": "2018-03",
+        "end": "2023-05",
+        "countryCode": "BR",
+        "mode": "remote",
+        "employmentType": "full-time",
+        "tech": [
+          "BGP",
+          "Telecom Infrastructure"
+        ]
+      },
+      {
+        "id": "gerenciatec",
+        "org": "Gerenciatec",
+        "titleOriginal": "Network Engineer",
+        "start": "2018-08",
+        "end": "2019-11",
+        "countryCode": "BR",
+        "mode": "remote",
+        "employmentType": "full-time",
+        "tech": [
+          "BGP",
+          "Telecom Infrastructure"
+        ]
+      },
+      {
+        "id": "ultraip",
+        "org": "UltraIP",
+        "titleOriginal": "Senior Information Technology Analyst",
+        "start": "2017-02",
+        "end": "2018-01",
+        "countryCode": "BR",
+        "mode": "hybrid",
+        "employmentType": "full-time",
+        "tech": [
+          "BGP",
+          "Telecom Infrastructure",
+          "FTTH",
+          "UTP"
+        ]
+      },
+      {
+        "id": "martelecom",
+        "org": "Mar Telecom",
+        "titleOriginal": "Network Telecommunications Administrator",
+        "start": "2013-10",
+        "end": "2016-11",
+        "countryCode": "BR",
+        "mode": "on-site",
+        "employmentType": "full-time",
+        "tech": [
+          "Ubiquiti",
+          "BGP"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "id": "infnet",
+        "org": "Instituto Infnet",
+        "start": null,
+        "end": "2023-11",
+        "countryCode": "BR",
+        "credentialId": null
+      },
+      {
+        "id": "etec-status",
+        "org": "ETEC Status",
+        "start": "2018",
+        "end": "2019",
+        "countryCode": "BR",
+        "credentialId": "SisTec 9149B/91357979CM"
+      }
+    ],
+    "certifications": [
+      {
+        "id": "ccie",
+        "name": "CCIE",
+        "issuer": "Cisco",
+        "issued": "2025-10",
+        "expires": "2028-10",
+        "credentialUrl": null,
+        "number": "69742",
+        "issuedDay": "2025-10-28",
+        "level": "expert",
+        "fullName": null
+      },
+      {
+        "id": "uminho-exec",
+        "name": "Programa Executivo em Comunicação e Liderança",
+        "issuer": "UMinhoExec - Executive Business Education",
+        "issued": "2025-01",
+        "expires": null,
+        "credentialUrl": null,
+        "level": null,
+        "fullName": null
+      },
+      {
+        "id": "ccnp-ent",
+        "name": "CCNP Enterprise",
+        "issuer": "Cisco",
+        "issued": "2024-09",
+        "expires": "2028-10",
+        "credentialUrl": null,
+        "level": "professional",
+        "fullName": null
+      },
+      {
+        "id": "ccnp-encor",
+        "name": "CCNP ENCOR",
+        "issuer": "Cisco",
+        "issued": "2024-09",
+        "expires": "2028-10",
+        "credentialUrl": null,
+        "level": "professional-exam",
+        "fullName": "Cisco Certified Specialist - Enterprise Core"
+      },
+      {
+        "id": "mpls-huawei",
+        "name": "MPLS Huawei",
+        "issuer": "Hexa Networks",
+        "issued": "2024-04",
+        "expires": null,
+        "credentialUrl": null,
+        "level": null,
+        "fullName": null
+      },
+      {
+        "id": "ccnp-enarsi",
+        "name": "CCNP ENARSI",
+        "issuer": "Cisco",
+        "issued": "2023-12",
+        "expires": "2028-10",
+        "credentialUrl": null,
+        "level": "professional-exam",
+        "fullName": null
+      },
+      {
+        "id": "ccna",
+        "name": "CCNA",
+        "issuer": "Cisco",
+        "issued": "2023-09",
+        "expires": "2028-10",
+        "credentialUrl": null,
+        "level": "associate",
+        "fullName": null
+      },
+      {
+        "id": "ccna-itn",
+        "name": "CCNA: Introduction to Networks",
+        "issuer": "Cisco",
+        "issued": "2023-05",
+        "expires": null,
+        "credentialUrl": null,
+        "issuedDay": "2023-05-10",
+        "level": "course",
+        "fullName": null
+      },
+      {
+        "id": "ccna-srwe",
+        "name": "CCNA: Switching, Routing, and Wireless Essentials",
+        "issuer": "Cisco",
+        "issued": "2023-05",
+        "expires": null,
+        "credentialUrl": null,
+        "issuedDay": "2023-05-03",
+        "level": "course",
+        "fullName": null
+      },
+      {
+        "id": "intro-cyber",
+        "name": "Introduction to Cybersecurity",
+        "issuer": "Cisco",
+        "issued": "2023-01",
+        "expires": null,
+        "credentialUrl": null,
+        "issuedDay": "2023-01-06",
+        "level": "course",
+        "fullName": null
+      }
+    ]
+  },
+  "i18n": {
+    "en": {
+      "locale": "en",
+      "headline": "CCIE #69742 | Senior Network Engineer | IP/MPLS | BGP | OSPF | MPLS-TE | L2VPN | EVPN | ISP & Telecom Infrastructure",
+      "title": "Senior Network Engineer",
+      "pitch": [
+        "CCIE #69742 Senior Network Engineer specialising in IP/MPLS, EVPN and Service Provider networks.",
+        "Designing, operating and optimising scalable, highly available and resilient networks."
+      ],
+      "pillars": [
+        "Network Architecture",
+        "Design & Operations",
+        "Troubleshooting & Optimisation",
+        "Automation & Scale"
+      ],
+      "domains": [
+        "IP/MPLS",
+        "Service Provider",
+        "Datacenter",
+        "Telecommunications"
+      ],
+      "about": [
+        "CCIE-certified Senior Network Engineer (#69742) with extensive experience designing, operating, troubleshooting and optimising complex Service Provider, ISP, Datacenter and Telecommunications networks.",
+        "Strong background in IP/MPLS architectures, including BGP, OSPF, MPLS LDP, MPLS Traffic Engineering, RSVP-TE, BFD, L2VPN, VPLS, VPWS, pseudowires and EVPN/MPLS. Experienced in designing highly available transport architectures, traffic-engineered paths, redundancy mechanisms and resilient service delivery across large-scale multi-operator environments.",
+        "Hands-on experience with carrier-grade multi-vendor environments including ZTE, Nokia, Huawei, MikroTik, Cisco and FiberHome, working across core, aggregation and operator interconnection infrastructure.",
+        "Experienced in advanced network troubleshooting and service assurance, including routing convergence, MPLS-TE, LDP, BFD, QoS, VLAN/QinQ, multicast, DHCP/IPoE, MC-LAG/MLACP and Layer 2 service protection.",
+        "Also performs large-scale network configuration audits, correlating pseudowires, tunnel policies, TE tunnels, explicit paths, routing protocols and redundancy mechanisms to identify design inconsistencies, configuration errors and potential service-impacting risks.",
+        "Interested in challenging opportunities involving IP/MPLS, Service Provider networks, network architecture, automation and large-scale infrastructure engineering."
+      ],
+      "highlights": [
+        {
+          "title": "Transport & services",
+          "text": "IP/MPLS design with MPLS-TE, RSVP-TE, BFD and EVPN/MPLS for highly available, traffic-engineered service delivery."
+        },
+        {
+          "title": "Multi-vendor, carrier-grade",
+          "text": "ZTE, Nokia, Huawei, MikroTik, Cisco and FiberHome across core, aggregation and operator interconnection."
+        },
+        {
+          "title": "Service assurance",
+          "text": "Routing convergence, QoS, VLAN/QinQ, multicast, DHCP/IPoE and MC-LAG/MLACP troubleshooting."
+        },
+        {
+          "title": "Configuration audits",
+          "text": "Large-scale audits correlating pseudowires, tunnel policies, TE tunnels and explicit paths to surface service-impacting risks."
+        }
+      ],
+      "experience": {
+        "dstelecom": {
+          "role": "Network Engineer",
+          "location": "Braga, Portugal",
+          "period": "Jun 2023 – Present",
+          "bullets": [
+            "Key role in engineering and optimising the core network infrastructure of a large-scale, multi-operator telecommunications network."
+          ],
+          "tech": [
+            "BGP",
+            "Telecom Infrastructure"
+          ]
+        },
+        "upei": {
+          "role": "Network Engineer",
+          "location": "Brazil",
+          "period": "Mar 2018 – May 2023",
+          "bullets": [
+            "Delivered expert network engineering consulting services to a diverse portfolio of clients.",
+            "Led projects from initial design and implementation through to advanced troubleshooting."
+          ],
+          "tech": [
+            "BGP",
+            "Telecom Infrastructure"
+          ]
+        },
+        "gerenciatec": {
+          "role": "Network Engineer",
+          "location": "Rio de Janeiro, Brazil",
+          "period": "Aug 2018 – Nov 2019",
+          "bullets": [
+            "Managed and maintained the core telecommunications network infrastructure of multiple Internet Service Providers (ISPs) in the Rio de Janeiro region."
+          ],
+          "tech": [
+            "BGP",
+            "Telecom Infrastructure"
+          ]
+        },
+        "ultraip": {
+          "role": "Senior Information Technology Analyst",
+          "location": "Cabo Frio and region, Brazil",
+          "period": "Feb 2017 – Jan 2018",
+          "bullets": [
+            "Led the IT department with full responsibility for the entire network and server infrastructure, including FTTH and UTP networks."
+          ],
+          "tech": [
+            "BGP",
+            "Telecom Infrastructure",
+            "FTTH",
+            "UTP"
+          ]
+        },
+        "martelecom": {
+          "role": "Network Telecommunications Administrator",
+          "location": "Cabo Frio, Rio de Janeiro, Brazil",
+          "period": "Oct 2013 – Nov 2016",
+          "bullets": [
+            "Ensured the operational integrity and 24/7 availability of a large-scale telecommunications infrastructure of 45 transmission towers."
+          ],
+          "tech": [
+            "Ubiquiti",
+            "BGP"
+          ]
+        }
+      },
+      "education": {
+        "infnet": {
+          "degree": "Pós MIT Engenharia de Redes",
+          "gloss": "Postgraduate programme in Network Engineering (Infnet’s “MIT” track)",
+          "location": "Brazil",
+          "period": "Nov 2023"
+        },
+        "etec-status": {
+          "degree": "Técnico em Telecomunicações",
+          "gloss": "Technician in Telecommunications",
+          "location": "Brazil",
+          "period": "2018 – 2019"
+        }
+      },
+      "certifications": {
+        "ccie": {
+          "issuedLabel": "Oct 2025",
+          "expiresLabel": "Oct 2028",
+          "gloss": null
+        },
+        "uminho-exec": {
+          "issuedLabel": "Jan 2025",
+          "expiresLabel": null,
+          "gloss": "Executive Programme in Communication and Leadership"
+        },
+        "ccnp-ent": {
+          "issuedLabel": "Sep 2024",
+          "expiresLabel": "Oct 2028",
+          "gloss": null
+        },
+        "ccnp-encor": {
+          "issuedLabel": "Sep 2024",
+          "expiresLabel": "Oct 2028",
+          "gloss": null
+        },
+        "mpls-huawei": {
+          "issuedLabel": "Apr 2024",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "ccnp-enarsi": {
+          "issuedLabel": "Dec 2023",
+          "expiresLabel": "Oct 2028",
+          "gloss": null
+        },
+        "ccna": {
+          "issuedLabel": "Sep 2023",
+          "expiresLabel": "Oct 2028",
+          "gloss": null
+        },
+        "ccna-itn": {
+          "issuedLabel": "May 2023",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "ccna-srwe": {
+          "issuedLabel": "May 2023",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "intro-cyber": {
+          "issuedLabel": "Jan 2023",
+          "expiresLabel": null,
+          "gloss": null
+        }
+      },
+      "skills": {
+        "routing": {
+          "label": "Routing & MPLS",
+          "items": [
+            "BGP",
+            "OSPF",
+            "MPLS LDP",
+            "MPLS Traffic Engineering",
+            "RSVP-TE",
+            "BFD"
+          ]
+        },
+        "l2": {
+          "label": "Layer 2 & VPN services",
+          "items": [
+            "L2VPN",
+            "VPLS",
+            "VPWS",
+            "Pseudowires",
+            "EVPN/MPLS",
+            "VLAN/QinQ",
+            "MC-LAG/MLACP"
+          ]
+        },
+        "assurance": {
+          "label": "Troubleshooting & service assurance",
+          "items": [
+            "Routing convergence",
+            "QoS",
+            "Multicast",
+            "DHCP/IPoE",
+            "Layer 2 service protection",
+            "Network configuration audits"
+          ]
+        },
+        "vendors": {
+          "label": "Vendors & platforms",
+          "items": [
+            "ZTE",
+            "Nokia",
+            "Huawei",
+            "MikroTik",
+            "Cisco",
+            "FiberHome",
+            "Ubiquiti"
+          ]
+        },
+        "infra": {
+          "label": "Infrastructure domains",
+          "items": [
+            "Service Provider",
+            "ISP",
+            "Datacenter",
+            "Telecommunications",
+            "Telecom Infrastructure",
+            "FTTH",
+            "UTP"
+          ]
+        }
+      },
+      "languages": [],
+      "ui": {
+        "nav": {
+          "about": "About",
+          "experience": "Experience",
+          "education": "Education",
+          "certifications": "Certifications",
+          "skills": "Skills",
+          "languages": "Languages",
+          "contact": "Contact"
+        },
+        "contact": "Contact",
+        "downloadCv": "Download CV",
+        "copyNumber": "Copy number",
+        "copied": "Copied",
+        "whatsapp": "WhatsApp",
+        "linkedin": "LinkedIn",
+        "phone": "Phone",
+        "location": "Location",
+        "present": "Present",
+        "issued": "Issued",
+        "validUntil": "Valid until",
+        "credential": "View credential",
+        "employment": {
+          "full-time": "Full-time"
+        },
+        "mode": {
+          "hybrid": "Hybrid",
+          "on-site": "On-site",
+          "remote": "Remote"
+        },
+        "showMore": "Show more",
+        "showLess": "Show less",
+        "filterAll": "All",
+        "skillsFilter": "Filter skills",
+        "certNumber": "Certificate no.",
+        "highlights": "Highlights",
+        "pillars": "Focus areas",
+        "language": "Language",
+        "theme": "Theme",
+        "statLabels": {
+          "yearsExperience": "years in telecom networks",
+          "employers": "employers",
+          "countries": "countries",
+          "certifications": "certifications",
+          "ciscoCertifications": "Cisco certifications",
+          "ccnaToCcieMonths": "months from CCNA to CCIE",
+          "monthsCurrentRole": "months in current role",
+          "towersManaged": "transmission towers operated"
+        },
+        "yearsUnit": "years",
+        "monthsUnit": "months",
+        "sectionIntro": {
+          "experience": "Where I have worked",
+          "certifications": "Cisco path: CCNA → CCNP → CCIE"
+        },
+        "noLanguages": "Languages not provided",
+        "footer": "Profile built from LinkedIn data"
+      }
+    },
+    "pt-PT": {
+      "locale": "pt-PT",
+      "headline": "CCIE #69742 | Senior Network Engineer | IP/MPLS | BGP | OSPF | MPLS-TE | L2VPN | EVPN | ISP & Telecom Infrastructure",
+      "title": "Engenheiro de Redes Sénior",
+      "pitch": [
+        "Engenheiro de Redes Sénior com CCIE #69742, especializado em IP/MPLS, EVPN e redes de operador.",
+        "Conceção, operação e otimização de redes escaláveis, altamente disponíveis e resilientes."
+      ],
+      "pillars": [
+        "Arquitetura de redes",
+        "Conceção e operação",
+        "Resolução de problemas e otimização",
+        "Automação e escala"
+      ],
+      "domains": [
+        "IP/MPLS",
+        "Service Provider",
+        "Datacenter",
+        "Telecomunicações"
+      ],
+      "about": [
+        "Engenheiro de Redes Sénior certificado CCIE (#69742), com vasta experiência na conceção, operação, resolução de problemas e otimização de redes complexas de Service Provider, ISP, Datacenter e Telecomunicações.",
+        "Sólida experiência em arquiteturas IP/MPLS, incluindo BGP, OSPF, MPLS LDP, MPLS Traffic Engineering, RSVP-TE, BFD, L2VPN, VPLS, VPWS, pseudowires e EVPN/MPLS. Experiência na conceção de arquiteturas de transporte de elevada disponibilidade, caminhos com engenharia de tráfego, mecanismos de redundância e entrega resiliente de serviços em ambientes multioperador de grande escala.",
+        "Experiência prática em ambientes multifabricante de nível carrier, incluindo ZTE, Nokia, Huawei, MikroTik, Cisco e FiberHome, em infraestrutura de core, agregação e interligação entre operadores.",
+        "Experiência em resolução avançada de problemas de rede e garantia de serviço, incluindo convergência de routing, MPLS-TE, LDP, BFD, QoS, VLAN/QinQ, multicast, DHCP/IPoE, MC-LAG/MLACP e proteção de serviços de camada 2.",
+        "Realiza também auditorias de configuração de rede em grande escala, correlacionando pseudowires, tunnel policies, túneis TE, explicit paths, protocolos de routing e mecanismos de redundância para identificar inconsistências de conceção, erros de configuração e riscos com potencial impacto no serviço.",
+        "Interessado em oportunidades desafiantes que envolvam IP/MPLS, redes de Service Provider, arquitetura de redes, automação e engenharia de infraestrutura de grande escala."
+      ],
+      "highlights": [
+        {
+          "title": "Transporte e serviços",
+          "text": "Conceção IP/MPLS com MPLS-TE, RSVP-TE, BFD e EVPN/MPLS para entrega de serviços com elevada disponibilidade e engenharia de tráfego."
+        },
+        {
+          "title": "Multifabricante, nível carrier",
+          "text": "ZTE, Nokia, Huawei, MikroTik, Cisco e FiberHome em core, agregação e interligação entre operadores."
+        },
+        {
+          "title": "Garantia de serviço",
+          "text": "Resolução de problemas de convergência de routing, QoS, VLAN/QinQ, multicast, DHCP/IPoE e MC-LAG/MLACP."
+        },
+        {
+          "title": "Auditorias de configuração",
+          "text": "Auditorias em grande escala que correlacionam pseudowires, tunnel policies, túneis TE e explicit paths para detetar riscos com impacto no serviço."
+        }
+      ],
+      "experience": {
+        "dstelecom": {
+          "role": "Engenheiro de Redes",
+          "location": "Braga, Portugal",
+          "period": "jun. 2023 – Atual",
+          "bullets": [
+            "Papel fundamental na engenharia e otimização da infraestrutura de rede core de uma rede de telecomunicações multioperador de grande escala."
+          ],
+          "tech": [
+            "BGP",
+            "Infraestrutura de telecomunicações"
+          ]
+        },
+        "upei": {
+          "role": "Engenheiro de Redes",
+          "location": "Brasil",
+          "period": "mar. 2018 – mai. 2023",
+          "bullets": [
+            "Prestação de serviços de consultoria especializada em engenharia de redes a um portefólio diversificado de clientes.",
+            "Liderança de projetos desde a conceção e a implementação iniciais até à resolução avançada de problemas."
+          ],
+          "tech": [
+            "BGP",
+            "Infraestrutura de telecomunicações"
+          ]
+        },
+        "gerenciatec": {
+          "role": "Engenheiro de Redes",
+          "location": "Rio de Janeiro, Brasil",
+          "period": "ago. 2018 – nov. 2019",
+          "bullets": [
+            "Gestão e manutenção da infraestrutura de rede de telecomunicações core de vários Internet Service Providers (ISP) na região do Rio de Janeiro."
+          ],
+          "tech": [
+            "BGP",
+            "Infraestrutura de telecomunicações"
+          ]
+        },
+        "ultraip": {
+          "role": "Analista Sénior de Tecnologias de Informação",
+          "location": "Cabo Frio e região, Brasil",
+          "period": "fev. 2017 – jan. 2018",
+          "bullets": [
+            "Liderança do departamento de TI, com responsabilidade total por toda a infraestrutura de rede e servidores, incluindo redes FTTH e UTP."
+          ],
+          "tech": [
+            "BGP",
+            "Infraestrutura de telecomunicações",
+            "FTTH",
+            "UTP"
+          ]
+        },
+        "martelecom": {
+          "role": "Administrador de Redes de Telecomunicações",
+          "location": "Cabo Frio, Rio de Janeiro, Brasil",
+          "period": "out. 2013 – nov. 2016",
+          "bullets": [
+            "Garantia da integridade operacional e da disponibilidade 24/7 de uma infraestrutura de telecomunicações de grande escala, com 45 torres de transmissão."
+          ],
+          "tech": [
+            "Ubiquiti",
+            "BGP"
+          ]
+        }
+      },
+      "education": {
+        "infnet": {
+          "degree": "Pós MIT Engenharia de Redes",
+          "gloss": "Pós-graduação em Engenharia de Redes (programa «MIT» do Infnet)",
+          "location": "Brasil",
+          "period": "nov. 2023"
+        },
+        "etec-status": {
+          "degree": "Técnico em Telecomunicações",
+          "gloss": null,
+          "location": "Brasil",
+          "period": "2018 – 2019"
+        }
+      },
+      "certifications": {
+        "ccie": {
+          "issuedLabel": "out. 2025",
+          "expiresLabel": "out. 2028",
+          "gloss": null
+        },
+        "uminho-exec": {
+          "issuedLabel": "jan. 2025",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "ccnp-ent": {
+          "issuedLabel": "set. 2024",
+          "expiresLabel": "out. 2028",
+          "gloss": null
+        },
+        "ccnp-encor": {
+          "issuedLabel": "set. 2024",
+          "expiresLabel": "out. 2028",
+          "gloss": null
+        },
+        "mpls-huawei": {
+          "issuedLabel": "abr. 2024",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "ccnp-enarsi": {
+          "issuedLabel": "dez. 2023",
+          "expiresLabel": "out. 2028",
+          "gloss": null
+        },
+        "ccna": {
+          "issuedLabel": "set. 2023",
+          "expiresLabel": "out. 2028",
+          "gloss": null
+        },
+        "ccna-itn": {
+          "issuedLabel": "mai. 2023",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "ccna-srwe": {
+          "issuedLabel": "mai. 2023",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "intro-cyber": {
+          "issuedLabel": "jan. 2023",
+          "expiresLabel": null,
+          "gloss": null
+        }
+      },
+      "skills": {
+        "routing": {
+          "label": "Routing e MPLS",
+          "items": [
+            "BGP",
+            "OSPF",
+            "MPLS LDP",
+            "MPLS Traffic Engineering",
+            "RSVP-TE",
+            "BFD"
+          ]
+        },
+        "l2": {
+          "label": "Serviços de camada 2 e VPN",
+          "items": [
+            "L2VPN",
+            "VPLS",
+            "VPWS",
+            "Pseudowires",
+            "EVPN/MPLS",
+            "VLAN/QinQ",
+            "MC-LAG/MLACP"
+          ]
+        },
+        "assurance": {
+          "label": "Resolução de problemas e garantia de serviço",
+          "items": [
+            "Convergência de routing",
+            "QoS",
+            "Multicast",
+            "DHCP/IPoE",
+            "Proteção de serviços de camada 2",
+            "Auditorias de configuração de rede"
+          ]
+        },
+        "vendors": {
+          "label": "Fabricantes e plataformas",
+          "items": [
+            "ZTE",
+            "Nokia",
+            "Huawei",
+            "MikroTik",
+            "Cisco",
+            "FiberHome",
+            "Ubiquiti"
+          ]
+        },
+        "infra": {
+          "label": "Domínios de infraestrutura",
+          "items": [
+            "Service Provider",
+            "ISP",
+            "Datacenter",
+            "Telecomunicações",
+            "Infraestrutura de telecomunicações",
+            "FTTH",
+            "UTP"
+          ]
+        }
+      },
+      "languages": [],
+      "ui": {
+        "nav": {
+          "about": "Sobre",
+          "experience": "Experiência",
+          "education": "Formação",
+          "certifications": "Certificações",
+          "skills": "Competências",
+          "languages": "Idiomas",
+          "contact": "Contacto"
+        },
+        "contact": "Contactar",
+        "downloadCv": "Descarregar CV",
+        "copyNumber": "Copiar número",
+        "copied": "Copiado",
+        "whatsapp": "WhatsApp",
+        "linkedin": "LinkedIn",
+        "phone": "Telemóvel",
+        "location": "Localização",
+        "present": "Atual",
+        "issued": "Emitido em",
+        "validUntil": "Válido até",
+        "credential": "Ver credencial",
+        "employment": {
+          "full-time": "Tempo inteiro"
+        },
+        "mode": {
+          "hybrid": "Híbrido",
+          "on-site": "Presencial",
+          "remote": "Remoto"
+        },
+        "showMore": "Ver mais",
+        "showLess": "Ver menos",
+        "filterAll": "Todas",
+        "skillsFilter": "Filtrar competências",
+        "certNumber": "N.º de certificado",
+        "highlights": "Destaques",
+        "pillars": "Áreas de foco",
+        "language": "Idioma",
+        "theme": "Tema",
+        "statLabels": {
+          "yearsExperience": "anos em redes de telecomunicações",
+          "employers": "entidades empregadoras",
+          "countries": "países",
+          "certifications": "certificações",
+          "ciscoCertifications": "certificações Cisco",
+          "ccnaToCcieMonths": "meses do CCNA ao CCIE",
+          "monthsCurrentRole": "meses na função atual",
+          "towersManaged": "torres de transmissão operadas"
+        },
+        "yearsUnit": "anos",
+        "monthsUnit": "meses",
+        "sectionIntro": {
+          "experience": "Onde trabalhei",
+          "certifications": "Percurso Cisco: CCNA → CCNP → CCIE"
+        },
+        "noLanguages": "Idiomas não indicados",
+        "footer": "Perfil construído a partir de dados do LinkedIn"
+      }
+    },
+    "pt-BR": {
+      "locale": "pt-BR",
+      "headline": "CCIE #69742 | Senior Network Engineer | IP/MPLS | BGP | OSPF | MPLS-TE | L2VPN | EVPN | ISP & Telecom Infrastructure",
+      "title": "Engenheiro de Redes Sênior",
+      "pitch": [
+        "Engenheiro de Redes Sênior com CCIE #69742, especializado em IP/MPLS, EVPN e redes de operadoras.",
+        "Projeto, operação e otimização de redes escaláveis, altamente disponíveis e resilientes."
+      ],
+      "pillars": [
+        "Arquitetura de redes",
+        "Projeto e operação",
+        "Troubleshooting e otimização",
+        "Automação e escala"
+      ],
+      "domains": [
+        "IP/MPLS",
+        "Service Provider",
+        "Datacenter",
+        "Telecomunicações"
+      ],
+      "about": [
+        "Engenheiro de Redes Sênior certificado CCIE (#69742), com ampla experiência em projeto, operação, troubleshooting e otimização de redes complexas de Service Provider, ISP, Datacenter e Telecomunicações.",
+        "Sólida experiência em arquiteturas IP/MPLS, incluindo BGP, OSPF, MPLS LDP, MPLS Traffic Engineering, RSVP-TE, BFD, L2VPN, VPLS, VPWS, pseudowires e EVPN/MPLS. Experiência em projetar arquiteturas de transporte de alta disponibilidade, caminhos com engenharia de tráfego, mecanismos de redundância e entrega resiliente de serviços em ambientes multioperadora de grande escala.",
+        "Experiência prática em ambientes multifabricante de nível carrier, incluindo ZTE, Nokia, Huawei, MikroTik, Cisco e FiberHome, atuando em infraestrutura de core, agregação e interconexão entre operadoras.",
+        "Experiência em troubleshooting avançado de redes e garantia de serviço, incluindo convergência de roteamento, MPLS-TE, LDP, BFD, QoS, VLAN/QinQ, multicast, DHCP/IPoE, MC-LAG/MLACP e proteção de serviços de camada 2.",
+        "Também realiza auditorias de configuração de rede em larga escala, correlacionando pseudowires, tunnel policies, túneis TE, explicit paths, protocolos de roteamento e mecanismos de redundância para identificar inconsistências de projeto, erros de configuração e riscos com potencial impacto no serviço.",
+        "Interessado em oportunidades desafiadoras envolvendo IP/MPLS, redes de Service Provider, arquitetura de redes, automação e engenharia de infraestrutura em larga escala."
+      ],
+      "highlights": [
+        {
+          "title": "Transporte e serviços",
+          "text": "Projeto IP/MPLS com MPLS-TE, RSVP-TE, BFD e EVPN/MPLS para entrega de serviços com alta disponibilidade e engenharia de tráfego."
+        },
+        {
+          "title": "Multifabricante, nível carrier",
+          "text": "ZTE, Nokia, Huawei, MikroTik, Cisco e FiberHome em core, agregação e interconexão entre operadoras."
+        },
+        {
+          "title": "Garantia de serviço",
+          "text": "Troubleshooting de convergência de roteamento, QoS, VLAN/QinQ, multicast, DHCP/IPoE e MC-LAG/MLACP."
+        },
+        {
+          "title": "Auditorias de configuração",
+          "text": "Auditorias em larga escala que correlacionam pseudowires, tunnel policies, túneis TE e explicit paths para identificar riscos com impacto no serviço."
+        }
+      ],
+      "experience": {
+        "dstelecom": {
+          "role": "Engenheiro de Redes",
+          "location": "Braga, Portugal",
+          "period": "jun. 2023 – Presente",
+          "bullets": [
+            "Papel fundamental na engenharia e otimização da infraestrutura de rede core de uma rede de telecomunicações multioperadora de grande escala."
+          ],
+          "tech": [
+            "BGP",
+            "Infraestrutura de telecomunicações"
+          ]
+        },
+        "upei": {
+          "role": "Engenheiro de Redes",
+          "location": "Brasil",
+          "period": "mar. 2018 – mai. 2023",
+          "bullets": [
+            "Prestação de serviços de consultoria especializada em engenharia de redes para um portfólio diversificado de clientes.",
+            "Liderança de projetos desde o projeto e a implementação iniciais até o troubleshooting avançado."
+          ],
+          "tech": [
+            "BGP",
+            "Infraestrutura de telecomunicações"
+          ]
+        },
+        "gerenciatec": {
+          "role": "Engenheiro de Redes",
+          "location": "Rio de Janeiro, Brasil",
+          "period": "ago. 2018 – nov. 2019",
+          "bullets": [
+            "Gestão e manutenção da infraestrutura de rede de telecomunicações core de diversos Internet Service Providers (ISPs) na região do Rio de Janeiro."
+          ],
+          "tech": [
+            "BGP",
+            "Infraestrutura de telecomunicações"
+          ]
+        },
+        "ultraip": {
+          "role": "Analista Sênior de Tecnologia da Informação",
+          "location": "Cabo Frio e região, Brasil",
+          "period": "fev. 2017 – jan. 2018",
+          "bullets": [
+            "Liderança do departamento de TI, com responsabilidade total por toda a infraestrutura de rede e servidores, incluindo redes FTTH e UTP."
+          ],
+          "tech": [
+            "BGP",
+            "Infraestrutura de telecomunicações",
+            "FTTH",
+            "UTP"
+          ]
+        },
+        "martelecom": {
+          "role": "Administrador de Redes de Telecomunicações",
+          "location": "Cabo Frio, Rio de Janeiro, Brasil",
+          "period": "out. 2013 – nov. 2016",
+          "bullets": [
+            "Garantia da integridade operacional e da disponibilidade 24/7 de uma infraestrutura de telecomunicações de grande porte, com 45 torres de transmissão."
+          ],
+          "tech": [
+            "Ubiquiti",
+            "BGP"
+          ]
+        }
+      },
+      "education": {
+        "infnet": {
+          "degree": "Pós MIT Engenharia de Redes",
+          "gloss": "Pós-graduação em Engenharia de Redes (programa «MIT» do Infnet)",
+          "location": "Brasil",
+          "period": "nov. 2023"
+        },
+        "etec-status": {
+          "degree": "Técnico em Telecomunicações",
+          "gloss": null,
+          "location": "Brasil",
+          "period": "2018 – 2019"
+        }
+      },
+      "certifications": {
+        "ccie": {
+          "issuedLabel": "out. 2025",
+          "expiresLabel": "out. 2028",
+          "gloss": null
+        },
+        "uminho-exec": {
+          "issuedLabel": "jan. 2025",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "ccnp-ent": {
+          "issuedLabel": "set. 2024",
+          "expiresLabel": "out. 2028",
+          "gloss": null
+        },
+        "ccnp-encor": {
+          "issuedLabel": "set. 2024",
+          "expiresLabel": "out. 2028",
+          "gloss": null
+        },
+        "mpls-huawei": {
+          "issuedLabel": "abr. 2024",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "ccnp-enarsi": {
+          "issuedLabel": "dez. 2023",
+          "expiresLabel": "out. 2028",
+          "gloss": null
+        },
+        "ccna": {
+          "issuedLabel": "set. 2023",
+          "expiresLabel": "out. 2028",
+          "gloss": null
+        },
+        "ccna-itn": {
+          "issuedLabel": "mai. 2023",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "ccna-srwe": {
+          "issuedLabel": "mai. 2023",
+          "expiresLabel": null,
+          "gloss": null
+        },
+        "intro-cyber": {
+          "issuedLabel": "jan. 2023",
+          "expiresLabel": null,
+          "gloss": null
+        }
+      },
+      "skills": {
+        "routing": {
+          "label": "Roteamento e MPLS",
+          "items": [
+            "BGP",
+            "OSPF",
+            "MPLS LDP",
+            "MPLS Traffic Engineering",
+            "RSVP-TE",
+            "BFD"
+          ]
+        },
+        "l2": {
+          "label": "Serviços de camada 2 e VPN",
+          "items": [
+            "L2VPN",
+            "VPLS",
+            "VPWS",
+            "Pseudowires",
+            "EVPN/MPLS",
+            "VLAN/QinQ",
+            "MC-LAG/MLACP"
+          ]
+        },
+        "assurance": {
+          "label": "Troubleshooting e garantia de serviço",
+          "items": [
+            "Convergência de roteamento",
+            "QoS",
+            "Multicast",
+            "DHCP/IPoE",
+            "Proteção de serviços de camada 2",
+            "Auditorias de configuração de rede"
+          ]
+        },
+        "vendors": {
+          "label": "Fabricantes e plataformas",
+          "items": [
+            "ZTE",
+            "Nokia",
+            "Huawei",
+            "MikroTik",
+            "Cisco",
+            "FiberHome",
+            "Ubiquiti"
+          ]
+        },
+        "infra": {
+          "label": "Domínios de infraestrutura",
+          "items": [
+            "Service Provider",
+            "ISP",
+            "Datacenter",
+            "Telecomunicações",
+            "Infraestrutura de telecomunicações",
+            "FTTH",
+            "UTP"
+          ]
+        }
+      },
+      "languages": [],
+      "ui": {
+        "nav": {
+          "about": "Sobre",
+          "experience": "Experiência",
+          "education": "Formação",
+          "certifications": "Certificações",
+          "skills": "Competências",
+          "languages": "Idiomas",
+          "contact": "Contato"
+        },
+        "contact": "Contatar",
+        "downloadCv": "Baixar CV",
+        "copyNumber": "Copiar número",
+        "copied": "Copiado",
+        "whatsapp": "WhatsApp",
+        "linkedin": "LinkedIn",
+        "phone": "Celular",
+        "location": "Localização",
+        "present": "Presente",
+        "issued": "Emitido em",
+        "validUntil": "Válido até",
+        "credential": "Ver credencial",
+        "employment": {
+          "full-time": "Tempo integral"
+        },
+        "mode": {
+          "hybrid": "Híbrido",
+          "on-site": "Presencial",
+          "remote": "Remoto"
+        },
+        "showMore": "Ver mais",
+        "showLess": "Ver menos",
+        "filterAll": "Todas",
+        "skillsFilter": "Filtrar competências",
+        "certNumber": "Nº do certificado",
+        "highlights": "Destaques",
+        "pillars": "Áreas de atuação",
+        "language": "Idioma",
+        "theme": "Tema",
+        "statLabels": {
+          "yearsExperience": "anos em redes de telecomunicações",
+          "employers": "empregadores",
+          "countries": "países",
+          "certifications": "certificações",
+          "ciscoCertifications": "certificações Cisco",
+          "ccnaToCcieMonths": "meses do CCNA ao CCIE",
+          "monthsCurrentRole": "meses na função atual",
+          "towersManaged": "torres de transmissão operadas"
+        },
+        "yearsUnit": "anos",
+        "monthsUnit": "meses",
+        "sectionIntro": {
+          "experience": "Onde trabalhei",
+          "certifications": "Trajetória Cisco: CCNA → CCNP → CCIE"
+        },
+        "noLanguages": "Idiomas não informados",
+        "footer": "Perfil construído a partir de dados do LinkedIn"
+      }
+    }
+  },
+  "stats": [
+    {
+      "id": "yearsExperience",
+      "value": 13,
+      "formula": "floor(months(2013-10 -> 2026-10)/12) = floor(156/12); start = Mar Telecom, out. 2013"
+    },
+    {
+      "id": "employers",
+      "value": 5,
+      "formula": "count(experience) = 5"
+    },
+    {
+      "id": "countries",
+      "value": 2,
+      "formula": "distinct country of experience = {PT, BR}"
+    },
+    {
+      "id": "certifications",
+      "value": 10,
+      "formula": "count(Licencas e certificados) = 10"
+    },
+    {
+      "id": "ciscoCertifications",
+      "value": 8,
+      "formula": "count(issuer = Cisco) = CCIE, CCNP Ent, ENCOR, ENARSI, CCNA, CCNA ITN, CCNA SRWE, Intro Cyber"
+    },
+    {
+      "id": "ccnaToCcieMonths",
+      "value": 25,
+      "formula": "months(CCNA 2023-09 -> CCIE 2025-10) = (2025-2023)*12 + (10-9) = 25"
+    },
+    {
+      "id": "monthsCurrentRole",
+      "value": 40,
+      "formula": "months(2023-06 -> 2026-10) = 40 (referenceDate 2026-10; LinkedIn shows 3 anos 5 meses = inclusive count at a later view)"
+    },
+    {
+      "id": "towersManaged",
+      "value": 45,
+      "formula": "literal from Mar Telecom role: \"45 transmission towers\""
+    }
+  ]
+};
