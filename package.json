@@ -5,6 +5,7 @@
   "description": "Perfil/CV interativo de Diogo Petry — site estático em site/",
   "scripts": {
     "dev": "node scripts/dev-server.js",
+    "stamp": "node scripts/stamp.js",
     "start": "node scripts/dev-server.js",
     "deploy": "vercel --prod",
     "deploy:preview": "vercel"

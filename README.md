@@ -26,6 +26,11 @@ npm run deploy:preview   # URL de preview (vercel)
 Ao publicar, troque em `site/index.html` o `og:image` e o `image` do JSON-LD por URLs absolutas (ex.: `https://seu-dominio/assets/img/photo.jpg`).
 Outros hosts estáticos (GitHub Pages, Netlify, Cloudflare Pages) também servem: publique a pasta `site/`.
 
+## Versionar assets (cache)
+Hosts sem `vercel.json` (ex.: nginx no Coolify) não enviam `Cache-Control`, e o navegador pode reutilizar CSS/JS antigos.
+Antes de cada deploy, rode `npm run stamp` e inclua `site/index.html` no commit: ele grava `?v=<hash do conteúdo>` em CSS, JS e `data/profile.js`, então cada mudança vira uma URL nova.
+O PDF do CV (`assets/cv/`) não entra no hash; se trocar o PDF, o navegador pode reter o antigo até revalidar.
+
 ## Editar o conteúdo
 Todo o texto vem de `site/data/profile.js` (`window.PROFILE`; `profile.json` é a cópia idêntica) em EN / PT-PT / PT-BR.
 Textos de interface (botões, status) ficam em `site/assets/js/strings.js`.
