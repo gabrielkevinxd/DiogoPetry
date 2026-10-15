@@ -5,17 +5,18 @@
   var out, input, root, history = [], hIdx = 0, busy = false, firstOpen = true;
   var reduce = matchMedia('(prefers-reduced-motion: reduce)');
 
-  var SECTIONS = ['about', 'experience', 'education', 'certifications', 'skills', 'contact'];
+  var SECTIONS = ['about', 'experience', 'education', 'certifications', 'skills', 'languages', 'contact'];
   var TREE = {
     show: { d: 'Show profile data', c: {
       version: { d: 'Who is behind this console' },
       'running-config': { d: 'Full profile; filter with | section <name>' },
       experience: { d: 'Career history' }, education: { d: 'Education' }, certifications: { d: 'Certifications' },
-      skills: { d: 'Skills by domain' }, about: { d: 'Summary' }, contact: { d: 'Contact details' },
+      skills: { d: 'Skills by domain' }, languages: { d: 'Spoken languages (CEFR levels)' }, about: { d: 'Summary' }, contact: { d: 'Contact details and availability' },
       mpls: { d: 'MPLS information', c: { 'traffic-eng': { d: 'MPLS-TE', c: { tunnels: { d: 'LSP state of the live topology' } } } } }
     } },
     traceroute: { d: 'Trace the career path', c: { career: { d: 'Hop-by-hop, oldest to current' } } },
     ping: { d: 'Reach out', c: { contact: { d: 'Contact details' } } },
+    download: { d: 'Download files', c: { cv: { d: 'CV as PDF (DiogoPetry-CV.pdf)' } } },
     help: { d: 'List commands' }, clear: { d: 'Clear the screen' }, exit: { d: 'Return to the recruiter view' }
   };
   var SECTION_FILTER = {}; SECTIONS.forEach(function (s) { SECTION_FILTER[s] = { d: 'Section ' + s }; });
@@ -72,6 +73,7 @@
         if (t.expiresLabel) o.push(' valid-until ' + t.expiresLabel);
         if (t.gloss) o.push(' ! ' + t.gloss);
         if (c.fullName) o.push(' ! ' + c.fullName);
+        if (c.credentialUrl) o.push(' credential ' + c.credentialUrl);
       });
       o.push('!');
     } else if (section === 'skills') {
@@ -80,8 +82,15 @@
         g.items.forEach(function (i) { o.push(' ' + i); });
       });
       o.push('!');
+    } else if (section === 'languages') {
+      M.languages.forEach(function (l) {
+        o.push('!', 'language ' + l.id, ' name ' + EN.languages[l.id].name);
+        if (l.native) o.push(' proficiency ' + EN.ui.motherTongue.toLowerCase());
+        else Object.keys(EN.ui.languageSkills).forEach(function (k) { o.push(' ' + EN.ui.languageSkills[k].toLowerCase().replace(/ /g, '-') + ' ' + l.cefr[k]); });
+      });
+      o.push('!');
     } else if (section === 'contact') {
-      o.push('!', 'contact', ' phone ' + M.phoneFormatted, ' whatsapp ' + M.whatsapp, ' linkedin ' + M.linkedin, ' country ' + M.location.country, '!');
+      o.push('!', 'contact', ' phone ' + M.phoneFormatted, ' whatsapp ' + M.whatsapp, ' email ' + M.email, ' linkedin ' + M.linkedin, ' country ' + M.location.country, ' availability ' + EN.ui.availability.toLowerCase(), '!');
     }
     return o;
   }
@@ -91,7 +100,7 @@
       print([
         { p: [M.name + ' — Senior Network Engineering Profile'], c: 'hl' },
         'Role                : ' + EN.title, 'Certification       : ' + M.ccieLabel + ' (Cisco)',
-        'Location            : ' + M.location.country,
+        'Location            : ' + M.location.country, 'Availability        : ' + EN.ui.availability,
         'Uptime              : ' + stat('yearsExperience') + ' ' + EN.ui.statLabels.yearsExperience,
         'Employers           : ' + stat('employers') + ' across ' + stat('countries') + ' countries',
         'Certifications      : ' + stat('certifications') + ' (' + stat('ciscoCertifications') + ' Cisco, incl. 3 courses)',
@@ -109,6 +118,7 @@
     'show education': function () { COMMANDS['show running-config']({ filter: 'education' }); },
     'show about': function () { COMMANDS['show running-config']({ filter: 'about' }); },
     'show contact': function () { COMMANDS['show running-config']({ filter: 'contact' }); },
+    'show languages': function () { COMMANDS['show running-config']({ filter: 'languages' }); },
     'show certifications': function () {
       var o = [{ p: ['Cisco path: CCNA -> CCNP -> CCIE  (' + stat('ccnaToCcieMonths') + ' months from CCNA to CCIE)'], c: 'hl' }, '',
         pad('Name', 50) + pad('Issuer', 40) + pad('Issued', 11) + 'Valid until', '-'.repeat(112)];
@@ -116,6 +126,7 @@
         var t = EN.certifications[c.id];
         o.push(pad(c.name + (c.number ? ' #' + c.number : ''), 50) + pad(c.issuer, 40) + pad(t.issuedLabel, 11) + (t.expiresLabel || '-'));
       });
+      o.push('', { p: ['Verify on Credly: ', { t: M.credly, href: M.credly }] });
       print(o);
     },
     'show skills': function () {
@@ -147,7 +158,13 @@
       for (var i = 0; i < 5; i++) { await sleep(180); s += '!'; d.textContent = s; }
       await sleep(180);
       print(['', { p: ['Phone    : ', { t: M.phoneFormatted, href: 'tel:' + M.phone }] }, { p: ['WhatsApp : ', { t: M.whatsapp, href: M.whatsapp }] },
-        { p: ['LinkedIn : ', { t: M.linkedin, href: M.linkedin }] }, 'Country  : ' + M.location.country]);
+        { p: ['Email    : ', { t: M.email, href: 'mailto:' + M.email }] },
+        { p: ['LinkedIn : ', { t: M.linkedin, href: M.linkedin }] }, 'Country  : ' + M.location.country, { p: ['Status   : ' + EN.ui.availability], c: 'ok' }]);
+    },
+    'download cv': function () {
+      var S = DP.S[DP.lang] || DP.S.en;
+      DP.downloadCv();
+      print([{ p: [S.cliDownload + ' ... ', { t: M.cv.path, href: M.cv.path }], c: 'ok' }]);
     },
     help: function () { listOptions(TREE, 'Available commands:'); },
     clear: function () { out.innerHTML = ''; },
@@ -289,7 +306,7 @@
       root.querySelector('#cli-scroll').addEventListener('click', function () { if (!getSelection().toString()) input.focus(); });
       this.relabel();
       var chips = root.querySelector('#cli-chips');
-      ['?', 'show version', 'show running-config | section experience', 'show certifications', 'traceroute career', 'show skills', 'ping contact'].forEach(function (c) {
+      ['?', 'show version', 'show running-config | section experience', 'show certifications', 'traceroute career', 'show skills', 'show languages', 'ping contact', 'download cv'].forEach(function (c) {
         var b = document.createElement('button'); b.type = 'button'; b.className = 'chip mono'; b.textContent = c;
         b.addEventListener('click', function (ev) { run(c); if (ev.pointerType === 'mouse') input.focus({ preventScroll: true }); });
         chips.appendChild(b);

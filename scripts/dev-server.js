@@ -10,7 +10,7 @@ const MIME = {
   '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
   '.webp': 'image/webp', '.woff2': 'font/woff2', '.ico': 'image/x-icon',
-  '.vcf': 'text/vcard; charset=utf-8', '.txt': 'text/plain; charset=utf-8',
+  '.vcf': 'text/vcard; charset=utf-8', '.pdf': 'application/pdf', '.txt': 'text/plain; charset=utf-8',
 };
 const LR = '<script>new EventSource("/__livereload").onmessage=function(){location.reload()};</script>';
 const clients = new Set();

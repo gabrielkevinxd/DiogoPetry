@@ -30,13 +30,19 @@ Outros hosts estáticos (GitHub Pages, Netlify, Cloudflare Pages) também servem
 Todo o texto vem de `site/data/profile.js` (`window.PROFILE`; `profile.json` é a cópia idêntica) em EN / PT-PT / PT-BR.
 Textos de interface (botões, status) ficam em `site/assets/js/strings.js`.
 O JSON-LD e as meta tags em `index.html` são estáticos (para crawlers): atualize-os se mudar cargo, telefone etc.
-Lacunas ainda fora da página: e-mail, idiomas, disponibilidade.
+Contato atual: +351 938 586 920 (também WhatsApp), eng.diogopetry@gmail.com, disponibilidade imediata (`meta.phone`, `meta.whatsapp`, `meta.email`, `meta.availability`). O telefone e o e-mail também estão no JSON-LD e no `<noscript>` de `index.html`: atualize os dois lugares.
+Credenciais: `credentialUrl` de cada certificação aponta para o badge público no Credly (perfil: https://www.credly.com/users/diogo-petry/badges). MPLS Huawei (Hexa Networks) e o programa da UMinhoExec não estão no Credly e ficam sem link.
+**Lacunas / pendências**:
+- Descrições das experiências: textos novos do LinkedIn ainda em levantamento (não alterados nesta atualização).
+- Início do Infnet: o cliente informou jan. 2021; o PDF do CV diz 15/01/2022. Confirmar com ele.
+- O PDF do CV traz dados pessoais que o site não mostra (data de nascimento, nacionalidade, autorização de trabalho). Ele fica público aqui e no GitHub: gerar uma versão sem esses campos antes de publicar, se o cliente preferir.
+- O PDF está em inglês e é o mesmo nos 3 idiomas.
 
 ## O que tem
 - **Vista recrutador** (padrão) e **vista engenheiro** (console estilo IOS-XR: `?`, Tab, ↑/↓, `show version`, `show running-config | section experience`, `show certifications`, `traceroute career`, `show skills`, `ping contact`…).
 - Topologia IP/MPLS viva: clique num enlace para derrubá-lo e veja o FRR/reconvergência.
 - Seletor EN / PT-PT / PT-BR e tema claro/escuro (preferências em localStorage, sem cookies).
-- "Baixar CV" = folha A4 ATS-friendly gerada do idioma ativo (impressão → Salvar como PDF); contato em .vcf.
+- "Baixar CV" baixa o PDF `site/assets/cv/DiogoPetry-CV.pdf` (link `<a download>`; também pelo comando `download cv` do console). Para trocar o CV, substitua o arquivo mantendo o nome (o `vercel.json` não aplica cache `immutable` a `/assets/cv/`). A folha A4 ATS-friendly gerada do idioma ativo continua disponível em Ctrl/Cmd+P; contato em .vcf.
 - GDPR-limpo: zero cookies, zero trackers, zero requisições a terceiros (fontes self-hosted: Instrument Serif, IBM Plex Sans, JetBrains Mono — licença OFL).
 - Parâmetros de URL úteis: `?lang=pt-PT&theme=dark&view=engineer`.
 

@@ -1,7 +1,7 @@
-/* Diogo Petry - profile data. Source: LinkedIn screenshots (see briefing/conteudo.md).
+/* Diogo Petry - profile data. Source: LinkedIn screenshots (see briefing/conteudo.md) + client Teams update (2026-10-14: email, phone, availability, languages, Credly, CV PDF).
  * stats formulas (referenceDate 2026-10):
- *   yearsExperience = 13  // floor(months(2013-10 -> 2026-10)/12) = floor(156/12); start = Mar Telecom, out. 2013
- *   employers = 5  // count(experience) = 5
+ *   yearsExperience = 15  // floor(months(2011-01 -> 2026-10)/12) = floor(189/12) = 15; start = GTV, jan. 2011
+ *   employers = 7  // count(experience) = 7
  *   countries = 2  // distinct country of experience = {PT, BR}
  *   certifications = 10  // count(Licencas e certificados) = 10
  *   ciscoCertifications = 8  // count(issuer = Cisco) = CCIE, CCNP Ent, ENCOR, ENARSI, CCNA, CCNA ITN, CCNA SRWE, Intro Cyber
@@ -14,11 +14,11 @@ window.PROFILE = {
     "name": "Diogo Petry",
     "ccie": "69742",
     "ccieLabel": "CCIE #69742",
-    "phone": "+351911849426",
-    "phoneFormatted": "+351 911 849 426",
-    "whatsapp": "https://wa.me/351911849426",
+    "phone": "+351938586920",
+    "phoneFormatted": "+351 938 586 920",
+    "whatsapp": "https://wa.me/351938586920",
     "linkedin": "https://www.linkedin.com/in/diogopetry/",
-    "email": null,
+    "email": "eng.diogopetry@gmail.com",
     "location": {
       "country": "Portugal",
       "countryCode": "PT",
@@ -46,21 +46,29 @@ window.PROFILE = {
         "employmentType": "full-time",
         "tech": [
           "BGP",
-          "Telecom Infrastructure"
+          "OSPF",
+          "MPLS-TE",
+          "RSVP-TE",
+          "L2VPN",
+          "EVPN",
+          "MC-LAG",
+          "ZTE",
+          "Nokia",
+          "Huawei",
+          "MikroTik"
         ]
       },
       {
         "id": "upei",
         "org": "Upei IT Consulting",
-        "titleOriginal": "Network Engineer",
-        "start": "2018-03",
-        "end": "2023-05",
+        "titleOriginal": "Network Engineer / IT Consultant / Founder",
+        "start": "2019-11",
+        "end": "2023-04",
         "countryCode": "BR",
         "mode": "remote",
         "employmentType": "full-time",
         "tech": [
-          "BGP",
-          "Telecom Infrastructure"
+          "VLAN"
         ]
       },
       {
@@ -74,7 +82,7 @@ window.PROFILE = {
         "employmentType": "full-time",
         "tech": [
           "BGP",
-          "Telecom Infrastructure"
+          "OSPF"
         ]
       },
       {
@@ -87,10 +95,19 @@ window.PROFILE = {
         "mode": "hybrid",
         "employmentType": "full-time",
         "tech": [
-          "BGP",
-          "Telecom Infrastructure",
+          "eBGP",
+          "iBGP",
           "FTTH",
-          "UTP"
+          "UTP",
+          "FreeBSD",
+          "Ubuntu Linux",
+          "Windows Server",
+          "MikroTik",
+          "FiberHome",
+          "Cisco",
+          "Cacti",
+          "PRTG",
+          "Asterisk"
         ]
       },
       {
@@ -103,8 +120,41 @@ window.PROFILE = {
         "mode": "on-site",
         "employmentType": "full-time",
         "tech": [
-          "Ubiquiti",
-          "BGP"
+          "BGP",
+          "OSPF",
+          "Linux",
+          "FreeRADIUS",
+          "MySQL",
+          "PostgreSQL",
+          "Icinga",
+          "Cacti"
+        ]
+      },
+      {
+        "id": "westinternet",
+        "org": "West Internet",
+        "titleOriginal": "Network Operations Center Analyst",
+        "start": "2012-05",
+        "end": "2013-10",
+        "countryCode": "BR",
+        "mode": "on-site",
+        "employmentType": "full-time",
+        "tech": [
+          "Network monitoring",
+          "SLA"
+        ]
+      },
+      {
+        "id": "gtv",
+        "org": "GTV",
+        "titleOriginal": "Technical Supervisor",
+        "start": "2011-01",
+        "end": "2011-10",
+        "countryCode": "BR",
+        "mode": "on-site",
+        "employmentType": "full-time",
+        "tech": [
+          "VoIP"
         ]
       }
     ],
@@ -112,7 +162,7 @@ window.PROFILE = {
       {
         "id": "infnet",
         "org": "Instituto Infnet",
-        "start": null,
+        "start": "2021-01",
         "end": "2023-11",
         "countryCode": "BR",
         "credentialId": null
@@ -133,7 +183,7 @@ window.PROFILE = {
         "issuer": "Cisco",
         "issued": "2025-10",
         "expires": "2028-10",
-        "credentialUrl": null,
+        "credentialUrl": "https://www.credly.com/badges/cad38af9-708d-4d84-8969-79aec25739e9/public_url",
         "number": "69742",
         "issuedDay": "2025-10-28",
         "level": "expert",
@@ -155,7 +205,7 @@ window.PROFILE = {
         "issuer": "Cisco",
         "issued": "2024-09",
         "expires": "2028-10",
-        "credentialUrl": null,
+        "credentialUrl": "https://www.credly.com/badges/f37a2314-243a-409e-9ddd-8dc302848546/public_url",
         "level": "professional",
         "fullName": null
       },
@@ -165,7 +215,7 @@ window.PROFILE = {
         "issuer": "Cisco",
         "issued": "2024-09",
         "expires": "2028-10",
-        "credentialUrl": null,
+        "credentialUrl": "https://www.credly.com/badges/595c6b0c-a1a5-46f3-8d43-0ae042a61764/public_url",
         "level": "professional-exam",
         "fullName": "Cisco Certified Specialist - Enterprise Core"
       },
@@ -185,7 +235,7 @@ window.PROFILE = {
         "issuer": "Cisco",
         "issued": "2023-12",
         "expires": "2028-10",
-        "credentialUrl": null,
+        "credentialUrl": "https://www.credly.com/badges/bd7cd6bf-4f67-4ca3-ba81-9a10ed6aef27/public_url",
         "level": "professional-exam",
         "fullName": null
       },
@@ -195,7 +245,7 @@ window.PROFILE = {
         "issuer": "Cisco",
         "issued": "2023-09",
         "expires": "2028-10",
-        "credentialUrl": null,
+        "credentialUrl": "https://www.credly.com/badges/0a3e29c5-690b-4350-86b7-6f2c795111b3/public_url",
         "level": "associate",
         "fullName": null
       },
@@ -205,7 +255,7 @@ window.PROFILE = {
         "issuer": "Cisco",
         "issued": "2023-05",
         "expires": null,
-        "credentialUrl": null,
+        "credentialUrl": "https://www.credly.com/badges/f6341212-9553-47fd-a836-514f34081578/public_url",
         "issuedDay": "2023-05-10",
         "level": "course",
         "fullName": null
@@ -216,7 +266,7 @@ window.PROFILE = {
         "issuer": "Cisco",
         "issued": "2023-05",
         "expires": null,
-        "credentialUrl": null,
+        "credentialUrl": "https://www.credly.com/badges/128a4026-a2ce-4bd5-9998-284ef9e711d2/public_url",
         "issuedDay": "2023-05-03",
         "level": "course",
         "fullName": null
@@ -227,10 +277,33 @@ window.PROFILE = {
         "issuer": "Cisco",
         "issued": "2023-01",
         "expires": null,
-        "credentialUrl": null,
+        "credentialUrl": "https://www.credly.com/badges/1592a4a6-ea42-4bc3-ae20-79b5eee8cfda/public_url",
         "issuedDay": "2023-01-06",
         "level": "course",
         "fullName": null
+      }
+    ],
+    "availability": "immediate",
+    "credly": "https://www.credly.com/users/diogo-petry/badges",
+    "cv": {
+      "path": "assets/cv/DiogoPetry-CV.pdf",
+      "filename": "DiogoPetry-CV.pdf",
+      "language": "en"
+    },
+    "languages": [
+      {
+        "id": "pt",
+        "native": true
+      },
+      {
+        "id": "en",
+        "cefr": {
+          "listening": "B1",
+          "reading": "B2",
+          "writing": "B1",
+          "spokenProduction": "A2",
+          "spokenInteraction": "A2"
+        }
       }
     ]
   },
@@ -287,36 +360,54 @@ window.PROFILE = {
           "location": "Braga, Portugal",
           "period": "Jun 2023 – Present",
           "bullets": [
-            "Key role in engineering and optimising the core network infrastructure of a large-scale, multi-operator telecommunications network."
+            "Design, operate, optimise, and troubleshoot large-scale IP/MPLS backbone and aggregation networks in a multi-operator telecommunications environment.",
+            "Engineer routing and transport infrastructures using BGP, OSPF, MPLS LDP, RSVP-TE, MPLS Traffic Engineering, BFD, and explicit-path engineering.",
+            "Deploy, maintain, and troubleshoot Layer 2 VPN services, including VPLS, VPWS, Pseudowires, and EVPN/MPLS, supporting residential, enterprise, and wholesale telecommunications services.",
+            "Design resilient network architectures using MPLS-TE hot-standby tunnels, pseudowire protection, MC-LAG/MLACP, Ethernet multi-homing, and redundancy mechanisms.",
+            "Perform advanced troubleshooting across routing, MPLS, L2VPN, VLAN/QinQ, QoS, multicast, DHCP/IPoE, FTTH, and broadband service delivery.",
+            "Conduct large-scale configuration and architecture audits across multi-vendor carrier-grade platforms, including ZTE, Nokia, Huawei, and MikroTik, identifying service-impacting risks and improving network reliability, scalability, and operational efficiency."
           ],
           "tech": [
             "BGP",
-            "Telecom Infrastructure"
+            "OSPF",
+            "MPLS-TE",
+            "RSVP-TE",
+            "L2VPN",
+            "EVPN",
+            "MC-LAG",
+            "ZTE",
+            "Nokia",
+            "Huawei",
+            "MikroTik"
           ]
         },
         "upei": {
-          "role": "Network Engineer",
-          "location": "Brazil",
-          "period": "Mar 2018 – May 2023",
+          "role": "Network Engineer / IT Consultant / Founder",
+          "location": "Cabo Frio, Brazil",
+          "period": "Nov 2019 – Apr 2023",
           "bullets": [
-            "Delivered expert network engineering consulting services to a diverse portfolio of clients.",
-            "Led projects from initial design and implementation through to advanced troubleshooting."
+            "Provided network engineering and IT infrastructure consulting services to multiple clients, covering network design, implementation, administration, optimisation, and troubleshooting.",
+            "Designed and implemented scalable, reliable, and secure network infrastructures tailored to business requirements and operational needs.",
+            "Configured, maintained, and troubleshot routing, switching, VLANs, and network connectivity across multi-vendor environments.",
+            "Conducted network assessments, diagnosed complex infrastructure issues, and provided technical recommendations to improve network performance, reliability, and operational efficiency."
           ],
           "tech": [
-            "BGP",
-            "Telecom Infrastructure"
+            "VLAN"
           ]
         },
         "gerenciatec": {
           "role": "Network Engineer",
-          "location": "Rio de Janeiro, Brazil",
+          "location": "Rio das Ostras, Brazil",
           "period": "Aug 2018 – Nov 2019",
           "bullets": [
-            "Managed and maintained the core telecommunications network infrastructure of multiple Internet Service Providers (ISPs) in the Rio de Janeiro region."
+            "Managed and maintained core telecommunications network infrastructures for multiple Internet Service Providers (ISPs) in the Rio de Janeiro region.",
+            "Configured and optimised BGP and OSPF routing infrastructures, supporting routing policies, network redundancy, and efficient traffic flow.",
+            "Performed troubleshooting of routing, network connectivity, and performance issues to maintain service availability and operational stability.",
+            "Administered critical network equipment and server infrastructure, supporting reliable telecommunications service delivery and network operations."
           ],
           "tech": [
             "BGP",
-            "Telecom Infrastructure"
+            "OSPF"
           ]
         },
         "ultraip": {
@@ -324,13 +415,25 @@ window.PROFILE = {
           "location": "Cabo Frio and region, Brazil",
           "period": "Feb 2017 – Jan 2018",
           "bullets": [
-            "Led the IT department with full responsibility for the entire network and server infrastructure, including FTTH and UTP networks."
+            "Led IT operations and managed the company's network and server infrastructure, including FTTH and UTP networks, ensuring service availability and operational reliability.",
+            "Designed, configured, and maintained eBGP and iBGP routing infrastructures, implementing routing policies and redundancy mechanisms to optimise network traffic.",
+            "Administered multi-platform server environments, including FreeBSD, Ubuntu Linux, and Windows Server, supporting critical infrastructure services.",
+            "Managed multi-vendor networking and monitoring solutions, including MikroTik, FiberHome, Cisco, Cacti, PRTG, and Asterisk, supporting network operations, performance monitoring, and IP telephony services."
           ],
           "tech": [
-            "BGP",
-            "Telecom Infrastructure",
+            "eBGP",
+            "iBGP",
             "FTTH",
-            "UTP"
+            "UTP",
+            "FreeBSD",
+            "Ubuntu Linux",
+            "Windows Server",
+            "MikroTik",
+            "FiberHome",
+            "Cisco",
+            "Cacti",
+            "PRTG",
+            "Asterisk"
           ]
         },
         "martelecom": {
@@ -338,11 +441,47 @@ window.PROFILE = {
           "location": "Cabo Frio, Rio de Janeiro, Brazil",
           "period": "Oct 2013 – Nov 2016",
           "bullets": [
-            "Ensured the operational integrity and 24/7 availability of a large-scale telecommunications infrastructure of 45 transmission towers."
+            "Managed and maintained telecommunications infrastructure comprising 45 transmission towers, supporting network stability, availability, and reliable service delivery.",
+            "Administered LAN/WAN routing infrastructures using BGP and OSPF, supporting network connectivity, routing efficiency, and redundancy.",
+            "Designed and implemented disaster recovery and business continuity procedures to improve network resilience and minimise service disruptions.",
+            "Administered Linux servers and infrastructure services, including FreeRADIUS, MySQL, and PostgreSQL, and deployed monitoring solutions using Icinga and Cacti, while providing Level 2 technical support for enterprise customers."
           ],
           "tech": [
-            "Ubiquiti",
-            "BGP"
+            "BGP",
+            "OSPF",
+            "Linux",
+            "FreeRADIUS",
+            "MySQL",
+            "PostgreSQL",
+            "Icinga",
+            "Cacti"
+          ]
+        },
+        "westinternet": {
+          "role": "Network Operations Center Analyst",
+          "location": "Cabo Frio, Brazil",
+          "period": "May 2012 – Oct 2013",
+          "bullets": [
+            "Coordinated technical support teams and service order workflows, ensuring efficient incident handling and compliance with Service Level Agreements (SLAs).",
+            "Implemented and managed telecommunications network monitoring processes, supporting service availability, proactive fault detection, and rapid incident response.",
+            "Optimised operational procedures and technical support activities to improve incident resolution efficiency, service quality, and network reliability."
+          ],
+          "tech": [
+            "Network monitoring",
+            "SLA"
+          ]
+        },
+        "gtv": {
+          "role": "Technical Supervisor",
+          "location": "Rio de Janeiro, Brazil",
+          "period": "Jan 2011 – Oct 2011",
+          "bullets": [
+            "Outsourced service provider supporting GVT telecommunications operations.",
+            "Led and supervised technical installation teams responsible for deploying VoIP services for corporate customers, ensuring installation quality and successful service delivery.",
+            "Managed technical relationships with enterprise customers, coordinating installation activities, service requirements, and contractual responsibilities."
+          ],
+          "tech": [
+            "VoIP"
           ]
         }
       },
@@ -351,7 +490,7 @@ window.PROFILE = {
           "degree": "Pós MIT Engenharia de Redes",
           "gloss": "Postgraduate programme in Network Engineering (Infnet’s “MIT” track)",
           "location": "Brazil",
-          "period": "Nov 2023"
+          "period": "Jan 2021 – Nov 2023"
         },
         "etec-status": {
           "degree": "Técnico em Telecomunicações",
@@ -472,7 +611,16 @@ window.PROFILE = {
           ]
         }
       },
-      "languages": [],
+      "languages": {
+        "pt": {
+          "name": "Portuguese",
+          "level": "Mother tongue"
+        },
+        "en": {
+          "name": "English",
+          "level": null
+        }
+      },
       "ui": {
         "nav": {
           "about": "About",
@@ -529,7 +677,20 @@ window.PROFILE = {
           "certifications": "Cisco path: CCNA → CCNP → CCIE"
         },
         "noLanguages": "Languages not provided",
-        "footer": "Profile built from LinkedIn data"
+        "footer": "Profile built from LinkedIn data",
+        "availability": "Available immediately",
+        "availabilityLabel": "Availability",
+        "email": "Email",
+        "verifyCredly": "Verify on Credly",
+        "cefrNote": "Levels follow the Common European Framework of Reference for Languages (CEFR), scale A1 to C2.",
+        "motherTongue": "Mother tongue",
+        "languageSkills": {
+          "listening": "Listening",
+          "reading": "Reading",
+          "writing": "Writing",
+          "spokenProduction": "Spoken production",
+          "spokenInteraction": "Spoken interaction"
+        }
       }
     },
     "pt-PT": {
@@ -584,36 +745,54 @@ window.PROFILE = {
           "location": "Braga, Portugal",
           "period": "jun. 2023 – Atual",
           "bullets": [
-            "Papel fundamental na engenharia e otimização da infraestrutura de rede core de uma rede de telecomunicações multioperador de grande escala."
+            "Conceção, operação, otimização e resolução de problemas de redes IP/MPLS de backbone e de agregação de grande escala, num ambiente de telecomunicações multioperador.",
+            "Engenharia de infraestruturas de routing e de transporte com BGP, OSPF, MPLS LDP, RSVP-TE, MPLS Traffic Engineering, BFD e engenharia de explicit paths.",
+            "Implementação, manutenção e resolução de problemas de serviços Layer 2 VPN, incluindo VPLS, VPWS, Pseudowires e EVPN/MPLS, em apoio a serviços de telecomunicações residenciais, empresariais e grossistas.",
+            "Conceção de arquiteturas de rede resilientes com túneis MPLS-TE hot-standby, proteção de pseudowires, MC-LAG/MLACP, Ethernet multi-homing e mecanismos de redundância.",
+            "Resolução avançada de problemas em routing, MPLS, L2VPN, VLAN/QinQ, QoS, multicast, DHCP/IPoE, FTTH e na entrega de serviços de banda larga.",
+            "Realização de auditorias de configuração e de arquitetura em grande escala a plataformas carrier-grade multifabricante, incluindo ZTE, Nokia, Huawei e MikroTik, identificando riscos com impacto no serviço e melhorando a fiabilidade, a escalabilidade e a eficiência operacional da rede."
           ],
           "tech": [
             "BGP",
-            "Infraestrutura de telecomunicações"
+            "OSPF",
+            "MPLS-TE",
+            "RSVP-TE",
+            "L2VPN",
+            "EVPN",
+            "MC-LAG",
+            "ZTE",
+            "Nokia",
+            "Huawei",
+            "MikroTik"
           ]
         },
         "upei": {
-          "role": "Engenheiro de Redes",
-          "location": "Brasil",
-          "period": "mar. 2018 – mai. 2023",
+          "role": "Engenheiro de Redes / Consultor de TI / Fundador",
+          "location": "Cabo Frio, Brasil",
+          "period": "nov. 2019 – abr. 2023",
           "bullets": [
-            "Prestação de serviços de consultoria especializada em engenharia de redes a um portefólio diversificado de clientes.",
-            "Liderança de projetos desde a conceção e a implementação iniciais até à resolução avançada de problemas."
+            "Prestação de serviços de consultoria em engenharia de redes e infraestruturas de TI a vários clientes, abrangendo conceção, implementação, administração, otimização e resolução de problemas de redes.",
+            "Conceção e implementação de infraestruturas de rede escaláveis, fiáveis e seguras, adaptadas aos requisitos do negócio e às necessidades operacionais.",
+            "Configuração, manutenção e resolução de problemas de routing, switching, VLANs e conectividade de rede em ambientes multifabricante.",
+            "Realização de avaliações de rede, diagnóstico de problemas complexos de infraestrutura e apresentação de recomendações técnicas para melhorar o desempenho, a fiabilidade e a eficiência operacional da rede."
           ],
           "tech": [
-            "BGP",
-            "Infraestrutura de telecomunicações"
+            "VLAN"
           ]
         },
         "gerenciatec": {
           "role": "Engenheiro de Redes",
-          "location": "Rio de Janeiro, Brasil",
+          "location": "Rio das Ostras, Brasil",
           "period": "ago. 2018 – nov. 2019",
           "bullets": [
-            "Gestão e manutenção da infraestrutura de rede de telecomunicações core de vários Internet Service Providers (ISP) na região do Rio de Janeiro."
+            "Gestão e manutenção de infraestruturas de rede de telecomunicações core de vários Internet Service Providers (ISP) na região do Rio de Janeiro.",
+            "Configuração e otimização de infraestruturas de routing BGP e OSPF, com suporte a políticas de routing, redundância de rede e fluxo de tráfego eficiente.",
+            "Resolução de problemas de routing, conectividade de rede e desempenho, para manter a disponibilidade do serviço e a estabilidade operacional.",
+            "Administração de equipamentos de rede críticos e de infraestrutura de servidores, assegurando a entrega fiável de serviços de telecomunicações e o funcionamento da rede."
           ],
           "tech": [
             "BGP",
-            "Infraestrutura de telecomunicações"
+            "OSPF"
           ]
         },
         "ultraip": {
@@ -621,13 +800,25 @@ window.PROFILE = {
           "location": "Cabo Frio e região, Brasil",
           "period": "fev. 2017 – jan. 2018",
           "bullets": [
-            "Liderança do departamento de TI, com responsabilidade total por toda a infraestrutura de rede e servidores, incluindo redes FTTH e UTP."
+            "Liderança das operações de TI e gestão da infraestrutura de rede e de servidores da empresa, incluindo redes FTTH e UTP, garantindo a disponibilidade do serviço e a fiabilidade operacional.",
+            "Conceção, configuração e manutenção de infraestruturas de routing eBGP e iBGP, com políticas de routing e mecanismos de redundância para otimizar o tráfego de rede.",
+            "Administração de ambientes de servidores multiplataforma, incluindo FreeBSD, Ubuntu Linux e Windows Server, em apoio a serviços de infraestrutura críticos.",
+            "Gestão de soluções de rede e de monitorização multifabricante, incluindo MikroTik, FiberHome, Cisco, Cacti, PRTG e Asterisk, em apoio às operações de rede, à monitorização de desempenho e aos serviços de telefonia IP."
           ],
           "tech": [
-            "BGP",
-            "Infraestrutura de telecomunicações",
+            "eBGP",
+            "iBGP",
             "FTTH",
-            "UTP"
+            "UTP",
+            "FreeBSD",
+            "Ubuntu Linux",
+            "Windows Server",
+            "MikroTik",
+            "FiberHome",
+            "Cisco",
+            "Cacti",
+            "PRTG",
+            "Asterisk"
           ]
         },
         "martelecom": {
@@ -635,11 +826,47 @@ window.PROFILE = {
           "location": "Cabo Frio, Rio de Janeiro, Brasil",
           "period": "out. 2013 – nov. 2016",
           "bullets": [
-            "Garantia da integridade operacional e da disponibilidade 24/7 de uma infraestrutura de telecomunicações de grande escala, com 45 torres de transmissão."
+            "Gestão e manutenção de uma infraestrutura de telecomunicações com 45 torres de transmissão, assegurando a estabilidade e a disponibilidade da rede e a entrega fiável de serviços.",
+            "Administração de infraestruturas de routing LAN/WAN com BGP e OSPF, em apoio à conectividade de rede, à eficiência do routing e à redundância.",
+            "Conceção e implementação de procedimentos de recuperação de desastres e de continuidade de negócio, para melhorar a resiliência da rede e minimizar interrupções do serviço.",
+            "Administração de servidores Linux e de serviços de infraestrutura, incluindo FreeRADIUS, MySQL e PostgreSQL, e implementação de soluções de monitorização com Icinga e Cacti, prestando também suporte técnico de nível 2 a clientes empresariais."
           ],
           "tech": [
-            "Ubiquiti",
-            "BGP"
+            "BGP",
+            "OSPF",
+            "Linux",
+            "FreeRADIUS",
+            "MySQL",
+            "PostgreSQL",
+            "Icinga",
+            "Cacti"
+          ]
+        },
+        "westinternet": {
+          "role": "Analista de Centro de Operações de Rede (NOC)",
+          "location": "Cabo Frio, Brasil",
+          "period": "mai. 2012 – out. 2013",
+          "bullets": [
+            "Coordenação de equipas de suporte técnico e de fluxos de ordens de serviço, garantindo a gestão eficiente de incidentes e o cumprimento dos Service Level Agreements (SLA).",
+            "Implementação e gestão de processos de monitorização da rede de telecomunicações, em apoio à disponibilidade do serviço, à deteção proativa de falhas e à resposta rápida a incidentes.",
+            "Otimização de procedimentos operacionais e de atividades de suporte técnico, para melhorar a eficiência na resolução de incidentes, a qualidade do serviço e a fiabilidade da rede."
+          ],
+          "tech": [
+            "Network monitoring",
+            "SLA"
+          ]
+        },
+        "gtv": {
+          "role": "Supervisor Técnico",
+          "location": "Rio de Janeiro, Brasil",
+          "period": "jan. 2011 – out. 2011",
+          "bullets": [
+            "Prestador de serviços subcontratado, em apoio às operações de telecomunicações da GVT.",
+            "Liderança e supervisão de equipas técnicas de instalação responsáveis pela implementação de serviços VoIP para clientes corporativos, assegurando a qualidade das instalações e o sucesso na entrega do serviço.",
+            "Gestão das relações técnicas com clientes empresariais, coordenando as atividades de instalação, os requisitos de serviço e as responsabilidades contratuais."
+          ],
+          "tech": [
+            "VoIP"
           ]
         }
       },
@@ -648,7 +875,7 @@ window.PROFILE = {
           "degree": "Pós MIT Engenharia de Redes",
           "gloss": "Pós-graduação em Engenharia de Redes (programa «MIT» do Infnet)",
           "location": "Brasil",
-          "period": "nov. 2023"
+          "period": "jan. 2021 – nov. 2023"
         },
         "etec-status": {
           "degree": "Técnico em Telecomunicações",
@@ -769,7 +996,16 @@ window.PROFILE = {
           ]
         }
       },
-      "languages": [],
+      "languages": {
+        "pt": {
+          "name": "Português",
+          "level": "Língua materna"
+        },
+        "en": {
+          "name": "Inglês",
+          "level": null
+        }
+      },
       "ui": {
         "nav": {
           "about": "Sobre",
@@ -826,7 +1062,20 @@ window.PROFILE = {
           "certifications": "Percurso Cisco: CCNA → CCNP → CCIE"
         },
         "noLanguages": "Idiomas não indicados",
-        "footer": "Perfil construído a partir de dados do LinkedIn"
+        "footer": "Perfil construído a partir de dados do LinkedIn",
+        "availability": "Disponível de imediato",
+        "availabilityLabel": "Disponibilidade",
+        "email": "E-mail",
+        "verifyCredly": "Verificar no Credly",
+        "cefrNote": "Níveis do Quadro Europeu Comum de Referência para as Línguas (QECR), escala A1 a C2.",
+        "motherTongue": "Língua materna",
+        "languageSkills": {
+          "listening": "Compreensão oral",
+          "reading": "Leitura",
+          "writing": "Escrita",
+          "spokenProduction": "Produção oral",
+          "spokenInteraction": "Interação oral"
+        }
       }
     },
     "pt-BR": {
@@ -879,38 +1128,56 @@ window.PROFILE = {
         "dstelecom": {
           "role": "Engenheiro de Redes",
           "location": "Braga, Portugal",
-          "period": "jun. 2023 – Presente",
+          "period": "jun. 2023 – Atual",
           "bullets": [
-            "Papel fundamental na engenharia e otimização da infraestrutura de rede core de uma rede de telecomunicações multioperadora de grande escala."
+            "Projeto, operação, otimização e troubleshooting de redes IP/MPLS de backbone e de agregação de grande escala, em um ambiente de telecomunicações multioperadora.",
+            "Engenharia de infraestruturas de roteamento e de transporte com BGP, OSPF, MPLS LDP, RSVP-TE, MPLS Traffic Engineering, BFD e engenharia de explicit paths.",
+            "Implantação, manutenção e troubleshooting de serviços Layer 2 VPN, incluindo VPLS, VPWS, Pseudowires e EVPN/MPLS, para serviços de telecomunicações residenciais, corporativos e de atacado.",
+            "Projeto de arquiteturas de rede resilientes com túneis MPLS-TE hot-standby, proteção de pseudowires, MC-LAG/MLACP, Ethernet multi-homing e mecanismos de redundância.",
+            "Troubleshooting avançado em roteamento, MPLS, L2VPN, VLAN/QinQ, QoS, multicast, DHCP/IPoE, FTTH e na entrega de serviços de banda larga.",
+            "Realização de auditorias de configuração e de arquitetura em grande escala em plataformas carrier-grade multifabricante, incluindo ZTE, Nokia, Huawei e MikroTik, identificando riscos com impacto no serviço e melhorando a confiabilidade, a escalabilidade e a eficiência operacional da rede."
           ],
           "tech": [
             "BGP",
-            "Infraestrutura de telecomunicações"
+            "OSPF",
+            "MPLS-TE",
+            "RSVP-TE",
+            "L2VPN",
+            "EVPN",
+            "MC-LAG",
+            "ZTE",
+            "Nokia",
+            "Huawei",
+            "MikroTik"
           ]
         },
         "upei": {
-          "role": "Engenheiro de Redes",
-          "location": "Brasil",
-          "period": "mar. 2018 – mai. 2023",
+          "role": "Engenheiro de Redes / Consultor de TI / Fundador",
+          "location": "Cabo Frio, Brasil",
+          "period": "nov. 2019 – abr. 2023",
           "bullets": [
-            "Prestação de serviços de consultoria especializada em engenharia de redes para um portfólio diversificado de clientes.",
-            "Liderança de projetos desde o projeto e a implementação iniciais até o troubleshooting avançado."
+            "Prestação de serviços de consultoria em engenharia de redes e infraestrutura de TI para diversos clientes, abrangendo projeto, implementação, administração, otimização e troubleshooting de redes.",
+            "Projeto e implementação de infraestruturas de rede escaláveis, confiáveis e seguras, adequadas aos requisitos do negócio e às necessidades operacionais.",
+            "Configuração, manutenção e troubleshooting de roteamento, switching, VLANs e conectividade de rede em ambientes multifabricante.",
+            "Realização de avaliações de rede, diagnóstico de problemas complexos de infraestrutura e apresentação de recomendações técnicas para melhorar o desempenho, a confiabilidade e a eficiência operacional da rede."
           ],
           "tech": [
-            "BGP",
-            "Infraestrutura de telecomunicações"
+            "VLAN"
           ]
         },
         "gerenciatec": {
           "role": "Engenheiro de Redes",
-          "location": "Rio de Janeiro, Brasil",
+          "location": "Rio das Ostras, Brasil",
           "period": "ago. 2018 – nov. 2019",
           "bullets": [
-            "Gestão e manutenção da infraestrutura de rede de telecomunicações core de diversos Internet Service Providers (ISPs) na região do Rio de Janeiro."
+            "Gestão e manutenção de infraestruturas de rede de telecomunicações core de diversos Internet Service Providers (ISPs) na região do Rio de Janeiro.",
+            "Configuração e otimização de infraestruturas de roteamento BGP e OSPF, com suporte a políticas de roteamento, redundância de rede e fluxo de tráfego eficiente.",
+            "Troubleshooting de problemas de roteamento, conectividade de rede e desempenho, para manter a disponibilidade do serviço e a estabilidade operacional.",
+            "Administração de equipamentos de rede críticos e de infraestrutura de servidores, garantindo a entrega confiável de serviços de telecomunicações e a operação da rede."
           ],
           "tech": [
             "BGP",
-            "Infraestrutura de telecomunicações"
+            "OSPF"
           ]
         },
         "ultraip": {
@@ -918,13 +1185,25 @@ window.PROFILE = {
           "location": "Cabo Frio e região, Brasil",
           "period": "fev. 2017 – jan. 2018",
           "bullets": [
-            "Liderança do departamento de TI, com responsabilidade total por toda a infraestrutura de rede e servidores, incluindo redes FTTH e UTP."
+            "Liderança das operações de TI e gestão da infraestrutura de rede e de servidores da empresa, incluindo redes FTTH e UTP, garantindo a disponibilidade do serviço e a confiabilidade operacional.",
+            "Projeto, configuração e manutenção de infraestruturas de roteamento eBGP e iBGP, com políticas de roteamento e mecanismos de redundância para otimizar o tráfego de rede.",
+            "Administração de ambientes de servidores multiplataforma, incluindo FreeBSD, Ubuntu Linux e Windows Server, em apoio a serviços de infraestrutura críticos.",
+            "Gestão de soluções de rede e de monitoramento multifabricante, incluindo MikroTik, FiberHome, Cisco, Cacti, PRTG e Asterisk, em apoio às operações de rede, ao monitoramento de desempenho e aos serviços de telefonia IP."
           ],
           "tech": [
-            "BGP",
-            "Infraestrutura de telecomunicações",
+            "eBGP",
+            "iBGP",
             "FTTH",
-            "UTP"
+            "UTP",
+            "FreeBSD",
+            "Ubuntu Linux",
+            "Windows Server",
+            "MikroTik",
+            "FiberHome",
+            "Cisco",
+            "Cacti",
+            "PRTG",
+            "Asterisk"
           ]
         },
         "martelecom": {
@@ -932,11 +1211,47 @@ window.PROFILE = {
           "location": "Cabo Frio, Rio de Janeiro, Brasil",
           "period": "out. 2013 – nov. 2016",
           "bullets": [
-            "Garantia da integridade operacional e da disponibilidade 24/7 de uma infraestrutura de telecomunicações de grande porte, com 45 torres de transmissão."
+            "Gestão e manutenção de uma infraestrutura de telecomunicações com 45 torres de transmissão, garantindo a estabilidade e a disponibilidade da rede e a entrega confiável de serviços.",
+            "Administração de infraestruturas de roteamento LAN/WAN com BGP e OSPF, em apoio à conectividade de rede, à eficiência do roteamento e à redundância.",
+            "Projeto e implementação de procedimentos de recuperação de desastres e de continuidade de negócios, para melhorar a resiliência da rede e minimizar interrupções do serviço.",
+            "Administração de servidores Linux e de serviços de infraestrutura, incluindo FreeRADIUS, MySQL e PostgreSQL, e implantação de soluções de monitoramento com Icinga e Cacti, prestando também suporte técnico de nível 2 a clientes corporativos."
           ],
           "tech": [
-            "Ubiquiti",
-            "BGP"
+            "BGP",
+            "OSPF",
+            "Linux",
+            "FreeRADIUS",
+            "MySQL",
+            "PostgreSQL",
+            "Icinga",
+            "Cacti"
+          ]
+        },
+        "westinternet": {
+          "role": "Analista de Centro de Operações de Rede (NOC)",
+          "location": "Cabo Frio, Brasil",
+          "period": "mai. 2012 – out. 2013",
+          "bullets": [
+            "Coordenação de equipes de suporte técnico e de fluxos de ordens de serviço, garantindo o tratamento eficiente de incidentes e o cumprimento dos Service Level Agreements (SLAs).",
+            "Implementação e gestão de processos de monitoramento da rede de telecomunicações, em apoio à disponibilidade do serviço, à detecção proativa de falhas e à resposta rápida a incidentes.",
+            "Otimização de procedimentos operacionais e de atividades de suporte técnico, para melhorar a eficiência na resolução de incidentes, a qualidade do serviço e a confiabilidade da rede."
+          ],
+          "tech": [
+            "Network monitoring",
+            "SLA"
+          ]
+        },
+        "gtv": {
+          "role": "Supervisor Técnico",
+          "location": "Rio de Janeiro, Brasil",
+          "period": "jan. 2011 – out. 2011",
+          "bullets": [
+            "Prestadora de serviços terceirizada, em apoio às operações de telecomunicações da GVT.",
+            "Liderança e supervisão de equipes técnicas de instalação responsáveis pela implantação de serviços VoIP para clientes corporativos, garantindo a qualidade das instalações e o sucesso na entrega do serviço.",
+            "Gestão do relacionamento técnico com clientes corporativos, coordenando as atividades de instalação, os requisitos de serviço e as responsabilidades contratuais."
+          ],
+          "tech": [
+            "VoIP"
           ]
         }
       },
@@ -945,7 +1260,7 @@ window.PROFILE = {
           "degree": "Pós MIT Engenharia de Redes",
           "gloss": "Pós-graduação em Engenharia de Redes (programa «MIT» do Infnet)",
           "location": "Brasil",
-          "period": "nov. 2023"
+          "period": "jan. 2021 – nov. 2023"
         },
         "etec-status": {
           "degree": "Técnico em Telecomunicações",
@@ -1066,7 +1381,16 @@ window.PROFILE = {
           ]
         }
       },
-      "languages": [],
+      "languages": {
+        "pt": {
+          "name": "Português",
+          "level": "Língua materna"
+        },
+        "en": {
+          "name": "Inglês",
+          "level": null
+        }
+      },
       "ui": {
         "nav": {
           "about": "Sobre",
@@ -1123,20 +1447,33 @@ window.PROFILE = {
           "certifications": "Trajetória Cisco: CCNA → CCNP → CCIE"
         },
         "noLanguages": "Idiomas não informados",
-        "footer": "Perfil construído a partir de dados do LinkedIn"
+        "footer": "Perfil construído a partir de dados do LinkedIn",
+        "availability": "Disponível imediatamente",
+        "availabilityLabel": "Disponibilidade",
+        "email": "E-mail",
+        "verifyCredly": "Verificar no Credly",
+        "cefrNote": "Níveis do Quadro Europeu Comum de Referência para Línguas (CEFR), escala A1 a C2.",
+        "motherTongue": "Língua materna",
+        "languageSkills": {
+          "listening": "Compreensão oral",
+          "reading": "Leitura",
+          "writing": "Escrita",
+          "spokenProduction": "Produção oral",
+          "spokenInteraction": "Interação oral"
+        }
       }
     }
   },
   "stats": [
     {
       "id": "yearsExperience",
-      "value": 13,
-      "formula": "floor(months(2013-10 -> 2026-10)/12) = floor(156/12); start = Mar Telecom, out. 2013"
+      "value": 15,
+      "formula": "floor(months(2011-01 -> 2026-10)/12) = floor(189/12) = 15; start = GTV, jan. 2011"
     },
     {
       "id": "employers",
-      "value": 5,
-      "formula": "count(experience) = 5"
+      "value": 7,
+      "formula": "count(experience) = 7"
     },
     {
       "id": "countries",

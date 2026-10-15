@@ -19,15 +19,42 @@
       wa: 'M4 20l1.2-4.1A8 8 0 1 1 8.2 19zM9 8.5c.3 3 2.5 5.2 5.5 5.5l1.2-1.3-1.9-1-.9.7a4 4 0 0 1-2.2-2.2l.7-.9-1-1.9z',
       in: 'M5 9h3v10H5zM6.5 4.5a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4zM10 9h2.9v1.4c.5-.9 1.600-1.600 3.100-1.600 3 0 3.500 2 3.500 4.500V19h-3v-5c0-1.200 0-2.600-1.700-2.600S13 12.700 13 14v5h-3z',
       copy: 'M8 8V5.500A1.500 1.500 0 0 1 9.500 4h9A1.500 1.500 0 0 1 20 5.500v9a1.500 1.500 0 0 1-1.500 1.500H16M5.500 8h9A1.500 1.500 0 0 1 16 9.500v9a1.500 1.500 0 0 1-1.500 1.500h-9A1.500 1.500 0 0 1 4 18.500v-9A1.500 1.500 0 0 1 5.500 8z',
+      mail: 'M4 6h16v12H4zM4.5 7l7.5 6 7.5-6',
       vcf: 'M5 4h10l4 4v12H5zM14 4v5h5M9 14h6M9 17h4',
       pdf: 'M12 4v11m0 0l-4-4m4 4l4-4M5 19h14',
-      down: 'M6 9l6 6 6-6'
+      down: 'M6 9l6 6 6-6',
+      ext: 'M14 5h5v5M19 5l-8 8M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-10A1.5 1.5 0 0 1 5 18.5v-10A1.5 1.5 0 0 1 6.5 7H10'
     }[name];
     return '<svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="' + p + '" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   }
   function dayLabel(iso) { var d = new Date(iso + 'T12:00:00'); return d.toLocaleDateString(LOCMAP[DP.lang], { day: 'numeric', month: 'long', year: 'numeric' }); }
   function expById(id) { return M.experience.filter(function (e) { return e.id === id; })[0]; }
   function certById(id) { return M.certifications.filter(function (c) { return c.id === id; })[0]; }
+  function cvLink(cls) {
+    var u = T().ui, s = S();
+    return '<a class="btn' + (cls ? ' ' + cls : '') + '" href="' + esc(M.cv.path) + '" download="' + esc(M.cv.filename) + '" data-act="cv">' + icon('pdf') + esc(u.downloadCv) + '<span class="sr-only"> (' + esc(s.pdfNote) + ')</span></a>';
+  }
+  function availPill(cls) { return '<span class="avail mono ' + (cls || '') + '"><i class="pip" aria-hidden="true"></i>' + esc(T().ui.availability) + '</span>'; }
+  function credLink(c, cls) {
+    if (!c.credentialUrl) return '';
+    var u = T().ui, s = S();
+    return '<a class="cred mono' + (cls ? ' ' + cls : '') + '" href="' + esc(c.credentialUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(u.credential) + '<span class="sr-only"> — ' + esc(c.name) + ' (' + esc(s.openIn) + ')</span></a>';
+  }
+  var CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  var SKILLS = ['listening', 'reading', 'writing', 'spokenProduction', 'spokenInteraction'];
+  function renderLanguages() {
+    var t = T(), u = t.ui, s = S();
+    return '<ul class="langs">' + M.languages.map(function (l) {
+      var x = t.languages[l.id], body;
+      if (l.native) body = '<p class="lang-native mono">' + esc(u.motherTongue) + '</p>';
+      else body = '<dl class="cefr">' + SKILLS.map(function (k) {
+        var lv = l.cefr[k], at = CEFR.indexOf(lv) + 1;
+        return '<div><dt>' + esc(u.languageSkills[k]) + '</dt><dd><b class="lv">' + esc(lv) + '</b><span class="meter" role="img" aria-label="' + esc(s.cefrScaleLabel + ': ' + lv) + '">' +
+          CEFR.map(function (c, i) { return '<i' + (i < at ? ' class="on"' : '') + '></i>'; }).join('') + '</span></dd></div>';
+      }).join('') + '</dl>';
+      return '<li><h3 class="lang-name">' + esc(x.name) + '</h3>' + body + '</li>';
+    }).join('') + '</ul><p class="sec-note cefr-note">' + esc(u.cefrNote) + '</p>';
+  }
   function sec(id, num, title, inner, cls) {
     return '<section class="sec ' + (cls || '') + '" id="' + id + '" aria-labelledby="h-' + id + '"><div class="sec-label mono" aria-hidden="true"><span>' + num + '</span></div>' +
       '<div class="sec-body"><h2 class="sec-title" id="h-' + id + '">' + esc(title) + '</h2>' + inner + '</div></section>';
@@ -40,12 +67,12 @@
     var name = M.name.split(' ');
     h += '<section class="hero" id="top" aria-labelledby="h-name">' +
       '<div class="hero-id"><span class="photo"><img src="' + esc(M.photo) + '" width="815" height="815" alt="' + esc(M.name) + '" decoding="async" fetchpriority="high"></span>' +
-      '<p class="kicker mono"><span class="seal">' + esc(M.ccieLabel) + '</span><span>' + esc(M.location.country) + '</span></p></div>' +
+      '<p class="kicker mono"><span class="seal">' + esc(M.ccieLabel) + '</span><span>' + esc(M.location.country) + '</span>' + availPill('kick') + '</p></div>' +
       '<h1 class="name" id="h-name">' + name.map(function (w, i) { return '<span class="mask"><span class="rise" style="--i:' + i + '">' + esc(w) + '</span></span>'; }).join(' ') + '</h1>' +
       '<p class="role-line">' + esc(t.title) + '</p>' +
       '<p class="pitch">' + esc(t.pitch[0]) + '</p><p class="pitch sub">' + esc(t.pitch[1]) + '</p>' +
       '<ul class="domains mono" aria-label="' + esc(u.pillars) + '">' + t.domains.map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('') + '</ul>' +
-      '<div class="cta"><a class="btn primary" href="#contact">' + esc(u.contact) + '</a><button type="button" class="btn" data-act="print">' + icon('pdf') + esc(u.downloadCv) + '</button>' +
+      '<div class="cta"><a class="btn primary" href="#contact">' + esc(u.contact) + '</a>' + cvLink() +
       '<a class="btn link" href="' + esc(M.linkedin) + '" target="_blank" rel="noopener noreferrer">' + esc(u.linkedin) + '<span class="sr-only"> (' + esc(s.openIn) + ')</span></a></div></section>';
 
     // Ledger de números (fonte: stats)
@@ -89,17 +116,18 @@
       '<div class="trailwrap"><ol class="trail">' + trail.map(function (id, i) {
         var c = certById(id), x = t.certifications[id];
         return '<li><span class="t-dot" aria-hidden="true"></span><span class="t-name">' + esc(c.name) + '</span><span class="t-date mono">' + esc(x.issuedLabel) + '</span>' +
-          (c.fullName ? '<span class="t-full">' + esc(c.fullName) + '</span>' : '') + '<span class="t-until mono">' + esc(u.validUntil) + ' ' + esc(x.expiresLabel) + '</span></li>';
+          (c.fullName ? '<span class="t-full">' + esc(c.fullName) + '</span>' : '') + '<span class="t-until mono">' + esc(u.validUntil) + ' ' + esc(x.expiresLabel) + '</span>' + credLink(c) + '</li>';
       }).join('') + '</ol>' +
       '<div class="crown"><p class="mono crown-k">' + esc(s.crownKicker) + ' · ' + esc(ccie.issuer) + '</p>' +
       '<p class="crown-name">CCIE</p><p class="crown-no mono">#' + esc(ccie.number) + '</p>' +
       '<p class="crown-meta mono">' + esc(u.issued) + ' ' + esc(dayLabel(ccie.issuedDay)) + ' · ' + esc(u.validUntil) + ' ' + esc(cc.expiresLabel) + '</p>' +
-      '<p class="crown-stat"><b class="num" data-v="' + stat('ccnaToCcieMonths') + '">' + stat('ccnaToCcieMonths') + '</b><span>' + esc(u.statLabels.ccnaToCcieMonths) + '</span></p></div></div>' +
+      credLink(ccie, 'on-dark') + '<p class="crown-stat"><b class="num" data-v="' + stat('ccnaToCcieMonths') + '">' + stat('ccnaToCcieMonths') + '</b><span>' + esc(u.statLabels.ccnaToCcieMonths) + '</span></p></div></div>' +
       '<h3 class="mono mini">' + esc(s.otherCreds) + '</h3>' +
       '<ul class="ledger-rows">' + others.map(function (id) {
         var c = certById(id), x = t.certifications[id];
-        return '<li><div><span class="r-name">' + esc(c.name) + '</span>' + (x.gloss ? '<span class="r-gloss">' + esc(x.gloss) + '</span>' : '') + '</div><span class="r-iss">' + esc(c.issuer) + '</span><span class="r-date mono">' + esc(x.issuedLabel) + '</span></li>';
-      }).join('') + '</ul>');
+        return '<li><div><span class="r-name">' + esc(c.name) + '</span>' + (x.gloss ? '<span class="r-gloss">' + esc(x.gloss) + '</span>' : '') + credLink(c) + '</div><span class="r-iss">' + esc(c.issuer) + '</span><span class="r-date mono">' + esc(x.issuedLabel) + '</span></li>';
+      }).join('') + '</ul>' +
+      '<p class="verify"><a class="btn link small" href="' + esc(M.credly) + '" target="_blank" rel="noopener noreferrer">' + esc(u.verifyCredly) + icon('ext') + '<span class="sr-only"> (' + esc(s.openIn) + ')</span></a></p>');
 
     // Competências
     var keys = ['routing', 'l2', 'assurance', 'vendors', 'infra'];
@@ -120,17 +148,22 @@
           (e.credentialId ? '<span class="r-gloss mono">' + esc(e.credentialId) + '</span>' : '') + '</div><span class="r-iss">' + esc(e.org) + ' · ' + esc(x.location) + '</span><span class="r-date mono">' + esc(x.period) + '</span></li>';
       }).join('') + '</ul>');
 
+    // Idiomas
+    h += sec('languages', '06', u.nav.languages, renderLanguages());
+
     // Contato
-    h += sec('contact', '06', u.nav.contact,
-      '<p class="contact-lead">' + esc(s.contactLead) + '</p>' + '<p class="contact-note">' + esc(s.contactNote) + '</p>' +
+    h += sec('contact', '07', u.nav.contact,
+      '<p class="contact-lead">' + esc(s.contactLead) + '</p>' + '<p class="contact-note">' + esc(s.contactNote) + '</p>' + availPill() +
       '<a class="phone" href="tel:' + esc(M.phone) + '" aria-label="' + esc(s.callAria + ' ' + M.phoneFormatted) + '">' + esc(M.phoneFormatted) + '</a>' +
+      '<a class="mail" href="mailto:' + esc(M.email) + '" aria-label="' + esc(s.mailAria + ' ' + M.email) + '">' + esc(M.email) + '</a>' +
       '<p class="mono mini loc">' + esc(u.location) + ' · ' + esc(M.location.country) + '</p>' +
       '<div class="cta wrap"><a class="btn primary" href="tel:' + esc(M.phone) + '">' + icon('phone') + esc(u.phone) + '</a>' +
       '<a class="btn" href="' + esc(M.whatsapp) + '" target="_blank" rel="noopener noreferrer">' + icon('wa') + esc(u.whatsapp) + '<span class="sr-only"> (' + esc(s.openIn) + ')</span></a>' +
+      '<a class="btn" href="mailto:' + esc(M.email) + '">' + icon('mail') + esc(u.email) + '</a>' +
       '<a class="btn" href="' + esc(M.linkedin) + '" target="_blank" rel="noopener noreferrer">' + icon('in') + esc(u.linkedin) + '<span class="sr-only"> (' + esc(s.openIn) + ')</span></a>' +
       '<button type="button" class="btn" data-act="copy">' + icon('copy') + '<span id="copy-lbl">' + esc(u.copyNumber) + '</span></button>' +
       '<button type="button" class="btn" data-act="vcf">' + icon('vcf') + esc(s.downloadVcf) + '</button>' +
-      '<button type="button" class="btn" data-act="print">' + icon('pdf') + esc(u.downloadCv) + '</button></div>', 'contact');
+      cvLink() + '</div>', 'contact');
 
     $('#view-recruiter').innerHTML = h;
     observeContent();
@@ -140,7 +173,7 @@
   function renderPrint() {
     var t = T(), u = t.ui, s = S(), h = '';
     h += '<h1>' + esc(M.name) + '</h1><p class="p-title">' + esc(t.title) + ' · ' + esc(M.ccieLabel) + '</p>';
-    h += '<p class="p-contact">' + esc(M.phoneFormatted) + ' · ' + esc(M.linkedin.replace(/^https?:\/\//, '')) + ' · ' + esc(M.location.country) + '</p>';
+    h += '<p class="p-contact">' + esc(M.phoneFormatted) + ' · ' + esc(M.email) + ' · ' + esc(M.linkedin.replace(/^https?:\/\//, '')) + ' · ' + esc(M.location.country) + ' · ' + esc(u.availability) + '</p>';
     h += '<p class="p-head">' + esc(t.headline) + '</p>';
     h += '<h2>' + esc(s.summary) + '</h2>' + t.about.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
     h += '<h2>' + esc(u.nav.experience) + '</h2>' + M.experience.map(function (e) {
@@ -156,12 +189,16 @@
       var x = t.education[e.id];
       return '<li><strong>' + esc(x.degree) + '</strong> — ' + esc(e.org) + ' · ' + esc(x.period) + (x.gloss ? ' (' + esc(x.gloss) + ')' : '') + '</li>';
     }).join('') + '</ul>';
+    h += '<h2>' + esc(u.nav.languages) + '</h2><ul class="p-block">' + M.languages.map(function (l) {
+      var x = t.languages[l.id];
+      return '<li><strong>' + esc(x.name) + '</strong> — ' + (l.native ? esc(u.motherTongue) : SKILLS.map(function (k) { return esc(u.languageSkills[k]) + ' ' + l.cefr[k]; }).join(' · ')) + '</li>';
+    }).join('') + '</ul>';
     h += '<h2>' + esc(u.nav.skills) + '</h2>' + Object.keys(t.skills).map(function (k) { var g = t.skills[k]; return '<p><strong>' + esc(g.label) + ':</strong> ' + esc(g.items.join(', ')) + '</p>'; }).join('');
     $('#print-cv').innerHTML = h;
   }
 
   /* ---------------- chrome: controles, status bar, HUD ---------------- */
-  var NAV = ['about', 'experience', 'certifications', 'skills', 'education', 'contact'];
+  var NAV = ['about', 'experience', 'certifications', 'skills', 'education', 'languages', 'contact'];
   function renderChrome() {
     var t = T(), s = S();
     document.documentElement.lang = DP.lang;
@@ -205,7 +242,7 @@
   /* ---------------- ações ---------------- */
   function vcard() {
     var t = T();
-    var L = ['BEGIN:VCARD', 'VERSION:3.0', 'N:Petry;Diogo;;;', 'FN:' + M.name, 'TITLE:' + t.title, 'TEL;TYPE=CELL:' + M.phone, 'URL:' + M.linkedin, 'ADR;TYPE=WORK:;;;;;;' + M.location.country, 'NOTE:' + M.ccieLabel, 'END:VCARD'];
+    var L = ['BEGIN:VCARD', 'VERSION:3.0', 'N:Petry;Diogo;;;', 'FN:' + M.name, 'TITLE:' + t.title, 'TEL;TYPE=CELL:' + M.phone, 'EMAIL;TYPE=INTERNET:' + M.email, 'URL:' + M.linkedin, 'ADR;TYPE=WORK:;;;;;;' + M.location.country, 'NOTE:' + M.ccieLabel, 'END:VCARD'];
     return L.join('\r\n') + '\r\n';
   }
   function download(name, mime, text) {
@@ -218,6 +255,10 @@
     if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text).catch(fb);
     return fb();
   }
+  DP.downloadCv = function () {
+    var a = document.createElement('a'); a.href = M.cv.path; a.download = M.cv.filename; a.hidden = true;
+    document.body.appendChild(a); a.click(); a.remove();
+  };
   DP.print = function () {
     var old = document.title; document.title = M.name + ' — CV';
     var back = function () { document.title = old; window.removeEventListener('afterprint', back); };
