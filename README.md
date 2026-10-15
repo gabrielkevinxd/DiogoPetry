@@ -47,7 +47,7 @@ Credenciais: `credentialUrl` de cada certificação aponta para o badge público
 - **Vista recrutador** (padrão) e **vista engenheiro** (console estilo IOS-XR: `?`, Tab, ↑/↓, `show version`, `show running-config | section experience`, `show certifications`, `traceroute career`, `show skills`, `ping contact`…).
 - Topologia IP/MPLS viva: clique num enlace para derrubá-lo e veja o FRR/reconvergência.
 - Seletor EN / PT-PT / PT-BR e tema claro/escuro (preferências em localStorage, sem cookies).
-- "Baixar CV" baixa o PDF `site/assets/cv/DiogoPetry-CV.pdf` (link `<a download>`; também pelo comando `download cv` do console). Para trocar o CV, substitua o arquivo mantendo o nome (o `vercel.json` não aplica cache `immutable` a `/assets/cv/`). A folha A4 ATS-friendly gerada do idioma ativo continua disponível em Ctrl/Cmd+P; contato em .vcf.
+- "Baixar CV" baixa o PDF `site/assets/cv/DiogoPetry_CV.pdf` (link `<a download>`; também pelo comando `download cv` do console). O arquivo é `DiogoPetry_CV.pdf` (nome do cliente, de 2026-10-15; o nome novo evita o cache do PDF antigo). Para trocar o CV de novo, use um nome novo ou substitua o arquivo mantendo o nome (o `vercel.json` não aplica cache `immutable` a `/assets/cv/`). A folha A4 ATS-friendly gerada do idioma ativo continua disponível em Ctrl/Cmd+P; contato em .vcf.
 - GDPR-limpo: zero cookies, zero trackers, zero requisições a terceiros (fontes self-hosted: Instrument Serif, IBM Plex Sans, JetBrains Mono — licença OFL).
 - Parâmetros de URL úteis: `?lang=pt-PT&theme=dark&view=engineer`.
 

@@ -174,6 +174,14 @@ window.PROFILE = {
         "end": "2019",
         "countryCode": "BR",
         "credentialId": "SisTec 9149B/91357979CM"
+      },
+      {
+        "id": "estacio",
+        "org": "Faculdade Estácio de Sá",
+        "start": "2016-10",
+        "end": "2018-12",
+        "countryCode": "BR",
+        "credentialId": null
       }
     ],
     "certifications": [
@@ -286,8 +294,8 @@ window.PROFILE = {
     "availability": "immediate",
     "credly": "https://www.credly.com/users/diogo-petry/badges",
     "cv": {
-      "path": "assets/cv/DiogoPetry-CV.pdf",
-      "filename": "DiogoPetry-CV.pdf",
+      "path": "assets/cv/DiogoPetry_CV.pdf",
+      "filename": "DiogoPetry_CV.pdf",
       "language": "en"
     },
     "languages": [
@@ -497,6 +505,12 @@ window.PROFILE = {
           "gloss": "Technician in Telecommunications",
           "location": "Brazil",
           "period": "2018 – 2019"
+        },
+        "estacio": {
+          "degree": "Information Technology Management",
+          "gloss": "EQF level 6",
+          "location": "Cabo Frio, Brazil",
+          "period": "Oct 2016 – Dec 2018"
         }
       },
       "certifications": {
@@ -882,6 +896,12 @@ window.PROFILE = {
           "gloss": null,
           "location": "Brasil",
           "period": "2018 – 2019"
+        },
+        "estacio": {
+          "degree": "Gestão da Tecnologia da Informação",
+          "gloss": "Nível 6 do QEQ (Quadro Europeu de Qualificações)",
+          "location": "Cabo Frio, Brasil",
+          "period": "out. 2016 – dez. 2018"
         }
       },
       "certifications": {
@@ -1267,6 +1287,12 @@ window.PROFILE = {
           "gloss": null,
           "location": "Brasil",
           "period": "2018 – 2019"
+        },
+        "estacio": {
+          "degree": "Gestão da Tecnologia da Informação",
+          "gloss": "Nível 6 do QEQ (Quadro Europeu de Qualificações)",
+          "location": "Cabo Frio, Brasil",
+          "period": "out. 2016 – dez. 2018"
         }
       },
       "certifications": {

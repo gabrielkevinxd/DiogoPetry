@@ -16,7 +16,7 @@
     } },
     traceroute: { d: 'Trace the career path', c: { career: { d: 'Hop-by-hop, oldest to current' } } },
     ping: { d: 'Reach out', c: { contact: { d: 'Contact details' } } },
-    download: { d: 'Download files', c: { cv: { d: 'CV as PDF (DiogoPetry-CV.pdf)' } } },
+    download: { d: 'Download files', c: { cv: { d: 'CV as PDF (DiogoPetry_CV.pdf)' } } },
     help: { d: 'List commands' }, clear: { d: 'Clear the screen' }, exit: { d: 'Return to the recruiter view' }
   };
   var SECTION_FILTER = {}; SECTIONS.forEach(function (s) { SECTION_FILTER[s] = { d: 'Section ' + s }; });

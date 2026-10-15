@@ -16,7 +16,7 @@ DP.S = {
     sbHelp: '? help · Tab complete · ↑↓ history · exit', cliLabel: 'IOS-XR command line', cliTry: 'Try', cliHint: 'Type ? for help · Tab completes · ↑ ↓ history · "exit" returns to the recruiter view',
     privacy: 'No cookies · no trackers · no third-party requests', printTitle: 'Curriculum vitae',
     shown: 'Showing', top: 'Back to top', docTitle: 'Senior Network Engineer', copiedAnnounce: 'Phone number copied',
-    plane: 'Network plane', sections: 'Sections', consoleLabel: 'IOS-XR console', mailAria: 'Send an email to', pdfNote: 'PDF, English', langSection: 'Languages', cefrScaleLabel: 'Level on the A1 to C2 scale', cliDownload: 'Downloading DiogoPetry-CV.pdf (English)'
+    plane: 'Network plane', sections: 'Sections', consoleLabel: 'IOS-XR console', mailAria: 'Send an email to', pdfNote: 'PDF, English', langSection: 'Languages', cefrScaleLabel: 'Level on the A1 to C2 scale', cliDownload: 'Downloading DiogoPetry_CV.pdf (English)'
   },
   'pt-PT': {
     skip: 'Saltar para o conteúdo', viewLabel: 'Vista', viewRecruiter: 'Vista de recrutador', viewEngineer: 'Vista de engenheiro',
@@ -33,7 +33,7 @@ DP.S = {
     sbHelp: '? ajuda · Tab completa · ↑↓ histórico · exit', cliLabel: 'Linha de comandos IOS-XR', cliTry: 'Experimente', cliHint: 'Escreva ? para ajuda · Tab completa · ↑ ↓ histórico · "exit" volta à vista de recrutador',
     privacy: 'Sem cookies · sem rastreadores · sem pedidos a terceiros', printTitle: 'Curriculum vitae',
     shown: 'A mostrar', top: 'Voltar ao topo', docTitle: 'Senior Network Engineer', copiedAnnounce: 'Número de telemóvel copiado',
-    plane: 'Plano de rede', sections: 'Secções', consoleLabel: 'Consola IOS-XR', mailAria: 'Enviar e-mail para', pdfNote: 'PDF, em inglês', langSection: 'Idiomas', cefrScaleLabel: 'Nível na escala A1 a C2', cliDownload: 'A descarregar DiogoPetry-CV.pdf (inglês)'
+    plane: 'Plano de rede', sections: 'Secções', consoleLabel: 'Consola IOS-XR', mailAria: 'Enviar e-mail para', pdfNote: 'PDF, em inglês', langSection: 'Idiomas', cefrScaleLabel: 'Nível na escala A1 a C2', cliDownload: 'A descarregar DiogoPetry_CV.pdf (inglês)'
   },
   'pt-BR': {
     skip: 'Pular para o conteúdo', viewLabel: 'Visão', viewRecruiter: 'Visão do recrutador', viewEngineer: 'Visão do engenheiro',
@@ -50,7 +50,7 @@ DP.S = {
     sbHelp: '? ajuda · Tab completa · ↑↓ histórico · exit', cliLabel: 'Linha de comando IOS-XR', cliTry: 'Experimente', cliHint: 'Digite ? para ajuda · Tab completa · ↑ ↓ histórico · "exit" volta à visão do recrutador',
     privacy: 'Sem cookies · sem rastreadores · sem requisições a terceiros', printTitle: 'Currículo',
     shown: 'Mostrando', top: 'Voltar ao topo', docTitle: 'Senior Network Engineer', copiedAnnounce: 'Número de celular copiado',
-    plane: 'Plano de rede', sections: 'Seções', consoleLabel: 'Console IOS-XR', mailAria: 'Enviar e-mail para', pdfNote: 'PDF, em inglês', langSection: 'Idiomas', cefrScaleLabel: 'Nível na escala A1 a C2', cliDownload: 'Baixando DiogoPetry-CV.pdf (inglês)'
+    plane: 'Plano de rede', sections: 'Seções', consoleLabel: 'Console IOS-XR', mailAria: 'Enviar e-mail para', pdfNote: 'PDF, em inglês', langSection: 'Idiomas', cefrScaleLabel: 'Nível na escala A1 a C2', cliDownload: 'Baixando DiogoPetry_CV.pdf (inglês)'
   }
 };
 
