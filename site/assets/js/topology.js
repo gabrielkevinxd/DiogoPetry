@@ -2,10 +2,13 @@
    Ilustração genérica — não representa a rede de nenhum empregador. */
 (function () {
   var NS = 'http://www.w3.org/2000/svg';
+  /* Posições em fração da área útil (fx: 0 = PE1, 1 = PE2; fy: 0 = topo, 1 = base). layout() converte em pixels
+     do SVG: o viewBox acompanha a largura real da faixa (1 unidade = 1 px), então os textos nunca encolhem. */
   var NODES = {
-    PE1: { x: 52, y: 270, pe: true }, P1: { x: 160, y: 120 }, P2: { x: 160, y: 270 }, P3: { x: 160, y: 420 },
-    P4: { x: 322, y: 150 }, P6: { x: 300, y: 270 }, P5: { x: 322, y: 390 }, PE2: { x: 428, y: 270, pe: true }
+    PE1: { fx: 0, fy: 0.5, pe: true }, P1: { fx: 0.27, fy: 0 }, P2: { fx: 0.27, fy: 0.5 }, P3: { fx: 0.27, fy: 1 },
+    P4: { fx: 0.73, fy: 0 }, P6: { fx: 0.66, fy: 0.5 }, P5: { fx: 0.73, fy: 1 }, PE2: { fx: 1, fy: 0.5, pe: true }
   };
+  var PAD_X = 26, PAD_Y = 22, PE_W = 38, PE_H = 28, P_R = 12, PKT_W = 34, PKT_H = 14, GAP = 4;
   var LINKS = [
     ['PE1', 'P1', 2], ['PE1', 'P2', 2], ['PE1', 'P3', 3], ['P1', 'P2', 1], ['P2', 'P3', 1], ['P1', 'P4', 2],
     ['P2', 'P6', 1], ['P3', 'P5', 2], ['P4', 'P6', 1], ['P6', 'P5', 1], ['P4', 'PE2', 2], ['P6', 'PE2', 2], ['P5', 'PE2', 2]
@@ -14,7 +17,7 @@
   var reduce = matchMedia('(prefers-reduced-motion: reduce)');
 
   var T = (DP.topo = { state: 'up', path: [], onState: null });
-  var burstUntil = 0, svg, linkEls = {}, nodeEls = {}, packetLayer, pathEl, timers = [], packets = [], raf = 0, last = 0, visible = true, spawnAcc = 0;
+  var burstUntil = 0, svg, glowEl, linkEls = {}, nodeEls = {}, packetLayer, pathEl, timers = [], packets = [], raf = 0, last = 0, visible = true, spawnAcc = 0;
 
   function el(name, attrs, parent) {
     var e = document.createElementNS(NS, name);
@@ -56,21 +59,19 @@
     svg = document.getElementById('topo');
     svg.innerHTML = '';
     var defs = el('defs', {}, svg);
-    var glow = el('filter', { id: 'glow', filterUnits: 'userSpaceOnUse', x: 0, y: 60, width: 480, height: 420 }, defs); /* userSpaceOnUse: em objectBoundingBox um caminho todo horizontal tem bbox de altura 0 e o filtro apaga a linha */
-    el('feGaussianBlur', { stdDeviation: '3', result: 'b' }, glow);
-    var m = el('feMerge', {}, glow); el('feMergeNode', { in: 'b' }, m); el('feMergeNode', { in: 'SourceGraphic' }, m);
+    glowEl = el('filter', { id: 'glow', filterUnits: 'userSpaceOnUse', x: 0, y: 0, width: 1, height: 1 }, defs); /* userSpaceOnUse: em objectBoundingBox um caminho todo horizontal tem bbox de altura 0 e o filtro apaga a linha */
+    el('feGaussianBlur', { stdDeviation: '3', result: 'b' }, glowEl);
+    var m = el('feMerge', {}, glowEl); el('feMergeNode', { in: 'b' }, m); el('feMergeNode', { in: 'SourceGraphic' }, m);
 
     var linkLayer = el('g', { class: 'links' }, svg);
     pathEl = el('polyline', { class: 'lsp-path', fill: 'none', points: '' }, svg);
     LINKS.forEach(function (l) {
-      var A = NODES[l.a], B = NODES[l.b];
       var g = el('g', { class: 'link', tabindex: '0', role: 'button', 'data-link': l.id }, linkLayer);
-      el('line', { class: 'hit', x1: A.x, y1: A.y, x2: B.x, y2: B.y }, g);
-      el('line', { class: 'wire', x1: A.x, y1: A.y, x2: B.x, y2: B.y }, g);
-      var mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2;
-      var x = el('g', { class: 'cut-mark', transform: 'translate(' + mx + ' ' + my + ')' }, g);
-      el('circle', { r: 8 }, x);
-      el('path', { d: 'M-3.5 -3.5 L3.5 3.5 M3.5 -3.5 L-3.5 3.5' }, x);
+      l.hit = el('line', { class: 'hit' }, g);
+      l.wire = el('line', { class: 'wire' }, g);
+      l.cut = el('g', { class: 'cut-mark' }, g);
+      el('circle', { r: 7 }, l.cut);
+      el('path', { d: 'M-3 -3 L3 3 M3 -3 L-3 3' }, l.cut);
       g.addEventListener('click', function () { toggle(l); });
       g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(l); } });
       linkEls[l.id] = g;
@@ -78,13 +79,35 @@
     packetLayer = el('g', { class: 'packets', 'aria-hidden': 'true' }, svg);
     Object.keys(NODES).forEach(function (k) {
       var n = NODES[k];
-      var g = el('g', { class: 'node' + (n.pe ? ' pe' : ''), transform: 'translate(' + n.x + ' ' + n.y + ')', 'aria-hidden': 'true' }, svg);
-      if (n.pe) el('rect', { x: -17, y: -13, width: 34, height: 26, rx: 5 }, g); else el('circle', { r: 11 }, g);
-      el('text', { class: 'nlabel', y: 3.5, 'text-anchor': 'middle' }, g).textContent = k;
+      var g = el('g', { class: 'node' + (n.pe ? ' pe' : ''), 'aria-hidden': 'true' }, svg);
+      if (n.pe) el('rect', { x: -PE_W / 2, y: -PE_H / 2, width: PE_W, height: PE_H, rx: 5 }, g); else el('circle', { r: P_R }, g);
+      el('text', { class: 'nlabel', y: 4, 'text-anchor': 'middle' }, g).textContent = k;
       nodeEls[k] = g;
     });
-    svg.appendChild(packetLayer); /* pacotes por cima dos nós: rótulo nunca fica cortado */
+    svg.appendChild(packetLayer); /* pacotes por cima dos nós; os que encostariam num nome ficam invisíveis (ver pos) */
     refreshLabels();
+    layout();
+  }
+
+  /* Converte as frações em pixels para o tamanho atual do SVG e reposiciona nós, enlaces, caminho e pacotes. */
+  function layout() {
+    var r = svg.getBoundingClientRect(), W = Math.round(r.width), H = Math.round(r.height);
+    if (W < 40 || H < 40) return;
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    glowEl.setAttribute('width', W); glowEl.setAttribute('height', H);
+    Object.keys(NODES).forEach(function (k) {
+      var n = NODES[k];
+      n.x = PAD_X + n.fx * (W - 2 * PAD_X); n.y = PAD_Y + n.fy * (H - 2 * PAD_Y);
+      nodeEls[k].setAttribute('transform', 'translate(' + n.x + ' ' + n.y + ')');
+    });
+    LINKS.forEach(function (l) {
+      var A = NODES[l.a], B = NODES[l.b];
+      [l.hit, l.wire].forEach(function (e) { e.setAttribute('x1', A.x); e.setAttribute('y1', A.y); e.setAttribute('x2', B.x); e.setAttribute('y2', B.y); });
+      l.cut.setAttribute('transform', 'translate(' + (A.x + B.x) / 2 + ' ' + (A.y + B.y) / 2 + ')');
+    });
+    drawPath();
+    packets.forEach(function (p) { p.g.setAttribute('transform', pos(p)); });
+    hideCollisions();
   }
 
   function refreshLabels() {
@@ -167,12 +190,13 @@
   /* ---- pacotes ---- */
   function mkPacket(route) {
     var g = el('g', { class: 'pkt' }, packetLayer);
-    el('rect', { x: -17, y: -7, width: 34, height: 14, rx: 3 }, g);
+    el('rect', { x: -PKT_W / 2, y: -PKT_H / 2, width: PKT_W, height: PKT_H, rx: 3 }, g);
     var t = el('text', { y: 3, 'text-anchor': 'middle' }, g);
     var p = { g: g, t: t, route: route, seg: 0, d: 0, dead: 0 };
     setLabel(p);
-    g.setAttribute('transform', pos(p));
     packets.push(p);
+    g.setAttribute('transform', pos(p));
+    hideCollisions();
   }
   function setLabel(p) { var a = p.route[p.seg], b = p.route[p.seg + 1]; if (b) p.t.textContent = labelFor(a, b); }
   function reroutePackets(down) {
@@ -192,11 +216,32 @@
       }
     });
   }
+  /* Folga entre a caixa do pacote em (x, y) e a caixa do nó mais próximo; <= 0 significa sobreposição. */
+  function clearance(x, y) {
+    var m = Infinity;
+    Object.keys(NODES).forEach(function (k) {
+      var n = NODES[k], hw = n.pe ? PE_W / 2 : P_R, hh = n.pe ? PE_H / 2 : P_R;
+      m = Math.min(m, Math.max(Math.abs(x - n.x) - (PKT_W / 2 + hw + GAP), Math.abs(y - n.y) - (PKT_H / 2 + hh + GAP)));
+    });
+    return m;
+  }
   function pos(p) {
     var A = NODES[p.route[p.seg]], B = NODES[p.route[p.seg + 1]];
     var len = Math.hypot(B.x - A.x, B.y - A.y), t = Math.min(1, p.d / len);
-    var k = Math.min(1, Math.min(p.d, len - p.d) / 22); p.g.style.opacity = Math.max(0, k * k * (3 - 2 * k)); /* some perto dos nós: rótulo nunca cobre o nome do roteador */
-    return 'translate(' + (A.x + (B.x - A.x) * t) + ' ' + (A.y + (B.y - A.y) * t) + ')';
+    p.x = A.x + (B.x - A.x) * t; p.y = A.y + (B.y - A.y) * t;
+    var k = Math.max(0, Math.min(1, clearance(p.x, p.y) / 10)); p.op = k * k * (3 - 2 * k); /* só aparece com folga: rótulo nunca cobre o nome do roteador */
+    return 'translate(' + p.x + ' ' + p.y + ')';
+  }
+  /* Entre dois pacotes que se tocariam, só o mais antigo fica visível; aplica a opacidade final. */
+  function hideCollisions() {
+    packets.forEach(function (p, i) {
+      if (p.dead) return;
+      for (var j = 0; j < i; j++) {
+        var q = packets[j];
+        if (!q.dead && q.op > 0 && Math.abs(p.x - q.x) < PKT_W + GAP && Math.abs(p.y - q.y) < PKT_H + GAP) { p.op = 0; break; }
+      }
+      p.g.style.opacity = p.op;
+    });
   }
   /* reduced-motion: nenhum pacote em movimento (respeita a preferência); só o caminho destacado e o texto de estado mudam */
   function burst() { if (reduce.matches) return; burstUntil = performance.now() + 3600; spawnAcc = 1; start(); }
@@ -222,6 +267,7 @@
       p.g.setAttribute('transform', pos(p));
       return true;
     });
+    hideCollisions();
     raf = requestAnimationFrame(tick);
   }
   function start() { if (!raf && active()) { last = 0; raf = requestAnimationFrame(tick); } }
@@ -230,8 +276,9 @@
     build();
     T.path = sp(SRC, DST); drawPath(); setState('up');
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (e) { visible = e[0].isIntersecting; if (visible) start(); }, { threshold: 0.01 }).observe(document.getElementById('plane'));
+      new IntersectionObserver(function (e) { visible = e[0].isIntersecting; if (visible) start(); }, { threshold: 0.01 }).observe(document.getElementById('lsp'));
     }
+    if ('ResizeObserver' in window) new ResizeObserver(layout).observe(svg); else window.addEventListener('resize', layout);
     document.addEventListener('visibilitychange', start);
     var rm = function () { if (reduce.matches) { packets.forEach(function (p) { p.g.remove(); }); packets = []; last = 0; } else { burstUntil = 0; start(); } };
     if (reduce.addEventListener) reduce.addEventListener('change', rm); else reduce.addListener(rm);

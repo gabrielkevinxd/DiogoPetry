@@ -209,9 +209,9 @@
     $('#theme-btn').setAttribute('aria-label', s.themeLabel + ' (' + (document.documentElement.dataset.theme === 'dark' ? s.themeLight : s.themeDark) + ')');
     $$('#seg-lang [data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === DP.lang); });
     $$('#seg-view [data-view]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.view === st.view); });
-    $('#plane-hint').textContent = s.topoHint; $('#restore-links').textContent = s.restore;
+    $('#lsp-hint').textContent = s.topoHint; $('#restore-links').textContent = s.restore;
     $('#topo').setAttribute('aria-label', s.topoAria);
-    $('#plane').setAttribute('aria-label', s.plane);
+    $('#lsp').setAttribute('aria-label', s.plane);
     $('#sb-nav').innerHTML = st.view === 'engineer' ? '<li class="help">' + esc(s.sbHelp) + '</li>' :
       NAV.map(function (id) { return '<li><a href="#' + id + '" data-sec="' + id + '">' + esc(t.ui.nav[id]) + '</a></li>'; }).join('');
     $('#foot').innerHTML = '<p>' + esc(t.ui.footer) + ' · ' + esc(s.privacy) + '</p><a href="#top" class="mono">↑ ' + esc(s.top) + '</a>';
@@ -233,10 +233,10 @@
   function lspText(state, path) {
     var s = S();
     var txt = { up: s.lspUp, frr: s.lspFrr, reopt: s.lspReopt, down: s.lspDown, unaffected: s.lspUnaffected }[state];
-    $('#lsp-state-text').textContent = txt; $('#sb-lsp').textContent = txt;
+    $('#lsp-state-text').textContent = txt;
     $('#path-line').textContent = path.length ? path.join(' → ') : '—';
     var cls = state === 'frr' || state === 'down' ? state : state === 'reopt' ? 'reopt' : 'up';
-    ['lsp-state', 'sb-left'].forEach(function (id) { var e = $('#' + id); e.dataset.state = cls; });
+    $('#lsp-state').dataset.state = cls;
   }
 
   /* ---------------- ações ---------------- */

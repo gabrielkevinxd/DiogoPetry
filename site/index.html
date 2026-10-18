@@ -52,7 +52,7 @@
 }
 </script>
 <link rel="preload" href="assets/img/photo.jpg" as="image">
-<link rel="stylesheet" href="assets/css/style.css?v=59cd1049">
+<link rel="stylesheet" href="assets/css/style.css?v=b7c9e996">
 <script>
 /* tema antes da pintura: evita flash */
 (function(){try{var t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('dp.theme');
@@ -63,50 +63,49 @@ document.documentElement.dataset.theme=t;}catch(e){document.documentElement.data
 <body>
 <a class="skip" href="#main" id="skip">Skip to content</a>
 
-<div class="split">
-  <div class="column" id="column">
-    <header class="ctrl" id="ctrl">
-      <a class="wordmark mono" href="#top" id="wordmark" aria-label="Diogo Petry">Diogo Petry<span> · </span>CCIE</a>
-      <div class="ctrl-group">
-        <div class="seg" role="group" id="seg-view" aria-label="View">
-          <button type="button" class="seg-btn" data-view="recruiter" aria-pressed="true"></button>
-          <button type="button" class="seg-btn" data-view="engineer" aria-pressed="false"></button>
-        </div>
-        <div class="seg" role="group" id="seg-lang" aria-label="Language">
-          <button type="button" class="seg-btn mono" data-lang="en" lang="en" aria-pressed="true">EN</button>
-          <button type="button" class="seg-btn mono" data-lang="pt-PT" lang="pt-PT" aria-pressed="false">PT-PT</button>
-          <button type="button" class="seg-btn mono" data-lang="pt-BR" lang="pt-BR" aria-pressed="false">PT-BR</button>
-        </div>
-        <button type="button" class="icon-btn" id="theme-btn" aria-label="Theme" aria-pressed="false">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
-        </button>
+<div class="page">
+  <header class="ctrl" id="ctrl">
+    <a class="wordmark mono" href="#top" id="wordmark" aria-label="Diogo Petry">Diogo Petry<span> · </span>CCIE</a>
+    <div class="ctrl-group">
+      <div class="seg" role="group" id="seg-view" aria-label="View">
+        <button type="button" class="seg-btn" data-view="recruiter" aria-pressed="true"></button>
+        <button type="button" class="seg-btn" data-view="engineer" aria-pressed="false"></button>
       </div>
-    </header>
-
-    <main id="main" tabindex="-1">
-      <div id="view-recruiter"></div>
-      <section id="view-engineer" hidden aria-label="IOS-XR console"></section>
-    </main>
-    <footer class="foot" id="foot"></footer>
-  </div>
-
-  <aside class="plane" id="plane" aria-labelledby="plane-title">
-    <div class="plane-grid" aria-hidden="true"></div>
-    <div class="plane-hud top">
-      <p class="mono plane-title" id="plane-title">LSP PE1 → PE2</p>
-      <p class="lsp-state mono" id="lsp-state" role="status" aria-live="polite"><span class="pip" aria-hidden="true"></span><span id="lsp-state-text">LSP up</span></p>
+      <div class="seg" role="group" id="seg-lang" aria-label="Language">
+        <button type="button" class="seg-btn mono" data-lang="en" lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="seg-btn mono" data-lang="pt-PT" lang="pt-PT" aria-pressed="false">PT-PT</button>
+        <button type="button" class="seg-btn mono" data-lang="pt-BR" lang="pt-BR" aria-pressed="false">PT-BR</button>
+      </div>
+      <button type="button" class="icon-btn" id="theme-btn" aria-label="Theme" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
+      </button>
     </div>
-    <svg id="topo" class="topo" viewBox="20 84 440 372" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Illustrative IP/MPLS topology"></svg>
-    <div class="plane-hud bottom">
-      <p class="mono path-line" id="path-line"></p>
-      <p class="plane-hint" id="plane-hint"></p>
-      <button type="button" class="btn-ghost mono" id="restore-links"></button>
+  </header>
+
+  <section class="lsp" id="lsp" aria-labelledby="lsp-title">
+    <div class="lsp-grid" aria-hidden="true"></div>
+    <div class="lsp-in">
+      <div class="lsp-head">
+        <p class="mono lsp-title" id="lsp-title">LSP PE1 → PE2</p>
+        <p class="lsp-state mono" id="lsp-state" role="status" aria-live="polite"><span class="pip" aria-hidden="true"></span><span id="lsp-state-text">LSP up</span></p>
+      </div>
+      <svg id="topo" class="topo" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Illustrative IP/MPLS topology"></svg>
+      <div class="lsp-side">
+        <p class="mono path-line" id="path-line"></p>
+        <p class="lsp-hint" id="lsp-hint"></p>
+        <button type="button" class="btn-ghost mono" id="restore-links"></button>
+      </div>
     </div>
-  </aside>
+  </section>
+
+  <main id="main" tabindex="-1">
+    <div id="view-recruiter"></div>
+    <section id="view-engineer" hidden aria-label="IOS-XR console"></section>
+  </main>
+  <footer class="foot" id="foot"></footer>
 </div>
 
 <nav class="statusbar" id="statusbar" aria-label="Sections">
-  <div class="sb-left mono" id="sb-left"><span class="pip" aria-hidden="true"></span><span id="sb-lsp">LSP up</span></div>
   <ul class="sb-nav mono" id="sb-nav"></ul>
   <div class="sb-progress" id="sb-progress" aria-hidden="true"></div>
 </nav>
@@ -124,10 +123,10 @@ document.documentElement.dataset.theme=t;}catch(e){document.documentElement.data
   </div>
 </noscript>
 
-<script src="data/profile.js?v=59cd1049"></script>
-<script src="assets/js/strings.js?v=59cd1049"></script>
-<script src="assets/js/topology.js?v=59cd1049"></script>
-<script src="assets/js/cli.js?v=59cd1049"></script>
-<script src="assets/js/app.js?v=59cd1049"></script>
+<script src="data/profile.js?v=b7c9e996"></script>
+<script src="assets/js/strings.js?v=b7c9e996"></script>
+<script src="assets/js/topology.js?v=b7c9e996"></script>
+<script src="assets/js/cli.js?v=b7c9e996"></script>
+<script src="assets/js/app.js?v=b7c9e996"></script>
 </body>
 </html>
